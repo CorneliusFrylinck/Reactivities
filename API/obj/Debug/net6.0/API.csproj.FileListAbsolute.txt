@@ -58,3 +58,8 @@ C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\runtimes\win-x64\native
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Humanizer.dll
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\MediatR.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\MediatR.Contracts.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\AutoMapper.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
