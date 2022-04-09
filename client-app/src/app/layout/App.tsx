@@ -5,15 +5,16 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUsers } from '@fortawesome/free-solid-svg-icons'
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { Activity } from '../models/activity';
+import NavBar from './NavBar';
 
 library.add(faUsers);
 
 function App() {
-  const [activities, setActivities] = useState([]);
+  const [activities, setActivities] = useState<Activity[]>([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/activities').then(response => {
-      console.log(response);
+    axios.get<Activity[]>('http://localhost:5000/api/activities').then(response => {
       var data = response.data;
       setActivities(data);
     });
@@ -22,9 +23,10 @@ function App() {
   return (
     <div >
       <header>
+        <NavBar />
         <h2 id="icon-container"><FontAwesomeIcon icon={["fas", "users"]} />Reactivities</h2>
         <ul>
-          {activities.map((activity: any) => (
+          {activities.map((activity) => (
               <li key={activity.id}>
                 {activity.title}
               </li>
