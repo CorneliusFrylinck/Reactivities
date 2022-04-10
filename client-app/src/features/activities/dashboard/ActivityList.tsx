@@ -8,16 +8,18 @@ interface Props {
     selectActivity: (id: string) => void;
     cancelSelectActivity: () => void;
     deleteActivity: (id: string) => void;
+    submitting: boolean;
+    deleteItemId: string;
 }
 
 export default function ActivityList(
-    {activities, selectedActivity, selectActivity, cancelSelectActivity, deleteActivity} 
+    {activities, selectedActivity, selectActivity, cancelSelectActivity, deleteActivity, submitting, deleteItemId} 
 : Props) {
     return (
         <div id="activity-list">
             <ul id="activity-list-container">
                 {activities.map((activity: Activity) => (
-                        <ActivityItem activity={activity} selectActivity={selectActivity} deleteActivity={deleteActivity} />
+                        <ActivityItem deleteItemId={deleteItemId} submitting={submitting} activity={activity} selectActivity={selectActivity} deleteActivity={deleteActivity} />
                 ))}
             </ul>
         </div>
