@@ -102,6 +102,10 @@ code {
   box-shadow: 4px 4px 4px #cecdcd;
 }
 
+#activity-list-container li:last-child {
+  border-bottom: none;
+}
+
 #activity-item {
   padding-bottom: 3rem;
   border-bottom:1px solid rgb(196, 195, 195);

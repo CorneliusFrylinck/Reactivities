@@ -9,10 +9,15 @@ import ActivityDashboard from '../../features/activities/dashboard/ActivityDashb
 import {v4 as uuid} from 'uuid';
 import agent from '../api/agent';
 import LoadingComponent from './LoadingComponent';
+import { useStore } from '../stores/store';
+import { observer } from 'mobx-react-lite';
 
 library.add(faUsers);
 
 function App() {
+  const {activityStore} = useStore();
+
+
   const [activities, setActivities] = useState<Activity[]>([]);
   const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
@@ -88,6 +93,8 @@ function App() {
         <header>
           <NavBar openForm={handleFormOpen} />
           <h2 id="icon-container"><FontAwesomeIcon icon={["fas", "users"]} />Reactivities</h2>
+          <h2>{activityStore.title}</h2>
+          <a href="#" onClick={activityStore.setTitle}>Shout</a>
           <ActivityDashboard 
             activities={activities} 
             selectedActivity={selectedActivity}
@@ -108,4 +115,4 @@ function App() {
   
 }
 
-export default App;
+export default observer(App);
