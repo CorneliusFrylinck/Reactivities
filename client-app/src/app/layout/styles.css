@@ -237,21 +237,26 @@ form {
 }
 
 input:focus{
-  outline: 2px solid rgb(17, 62, 211);
+  outline: 2px solid rgba(134, 134, 134, 0.5);
   border-radius: 1px;
   border: none;
   opacity: 0.7;
 }
 textarea:focus{
-  outline: 2px solid rgb(17, 62, 211);
+  outline: 2px solid rgba(134, 134, 134, 0.5);
   border-radius: 1px;
   border: none;
   opacity: 0.7;
 }
 
-.activityForm > input, textarea {
+.opacity-50 {
   opacity: 0.5;
 }
+
+.activityForm > form {
+  width: 40%;
+}
+
 
 .padding-round-1 {
   padding: 1rem;

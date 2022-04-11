@@ -15,7 +15,7 @@ export default observer(function ActivityList() {
         <div id="activity-list">
             <ul id="activity-list-container">
                 {activitiesByDate.map((activity: Activity) => (
-                        <ActivityItem 
+                        <ActivityItem key={activity.id}
                             activity={activity}
                         />
                 ))}
