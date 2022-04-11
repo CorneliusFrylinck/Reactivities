@@ -4,7 +4,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { useStore } from "../../../app/stores/store";
 import { observer } from "mobx-react-lite";
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { v4 as uuid } from 'uuid'
@@ -62,11 +62,11 @@ export default observer (function ActivityForm() {
                 <input name="city" onChange={handleInput} value={activity.city}  className="opacity-50 margin-1UP-halfLR" placeholder='City' />
                 <input name="venue" onChange={handleInput} value={activity.venue}  className="opacity-50 margin-1UP-halfLR" placeholder='Venue' />
                 <div  className="margin-1UP-halfLR">
-                    <input type="button" value='Cancel' />
+                    <Link to='/activities' >Cancel</Link>
                     {loading &&
                     <button className="spin-btn" type="submit"><FontAwesomeIcon className="spinner" icon="spinner" /></button>}
                     {! loading &&
-                    <button type="submit">Submit</button>}
+                    <button className="create-btn" type="submit">Submit</button>}
                 </div>
             </form>
         </div>

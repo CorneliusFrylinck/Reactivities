@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, SyntheticEvent } from "react";
 import { Activity } from "../../../app/models/activity";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
@@ -18,6 +18,10 @@ export default observer(function ActivityItem({activity} : Props) {
     const {activityStore} = useStore();
     const {deleteActivity, deleteItemId, loading} = activityStore;
 
+    function handleActivityDelete(id: string) {
+        deleteActivity(id)
+    }
+
     return (
         <li key={activity.id} id="activity-item">
             <h2 id="activity-title">{activity.title}</h2>
@@ -27,7 +31,7 @@ export default observer(function ActivityItem({activity} : Props) {
             <div id="space-top"><a id="activity-category">{activity.category}</a></div>
             <Link to={`/activities/${activity.id}`} id="view-btn" href="#">View</Link>
             {loading && activity.id == deleteItemId &&
-            <a key={activity.id} className="spin-btn" onClick={() => deleteActivity(activity.id)} id="delete-btn" href="#"><FontAwesomeIcon className="spinner" icon="spinner" /></a>}
+            <a key={activity.id} className="spin-btn" onClick={() => handleActivityDelete(activity.id)} id="delete-btn" href="#"><FontAwesomeIcon className="spinner" icon="spinner" /></a>}
             {(! loading || activity.id != deleteItemId ) &&
             <a onClick={() => deleteActivity(activity.id)} id="delete-btn" href="#">Delete</a>}
             

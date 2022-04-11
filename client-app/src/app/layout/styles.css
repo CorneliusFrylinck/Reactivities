@@ -50,7 +50,7 @@ code {
   align-content: center;
 }
 
-#create-btn {
+.create-btn {
   text-decoration: none;
   background-color: rgb(37, 185, 37);
   color: rgb(212, 240, 200);

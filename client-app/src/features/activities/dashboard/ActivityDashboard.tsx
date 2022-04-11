@@ -8,11 +8,11 @@ import ActivityList from './ActivityList';
 export default observer(function ActivityDashboard() {
 
     const {activityStore} = useStore();
-    
+    const {loadActivities, activityRegistry} = activityStore
 
   useEffect(() => {
-    activityStore.loadActivities();
-  }, []) //empty arr of dependencies, ensures that rendering happens once instead of an infinite loop
+    if (activityRegistry.size <= 1) loadActivities();
+  }, [activityRegistry.size, loadActivities]) //empty arr of dependencies, ensures that rendering happens once instead of an infinite loop
 
   if (activityStore.loadingInitial) {
     return <LoadingComponent content='Loading app' />
