@@ -1,27 +1,25 @@
+import { observer } from "mobx-react-lite";
 import React from "react";
 import { Activity } from "../../../app/models/activity";
+import { useStore } from "../../../app/stores/store";
 import ActivityItem from "./ActivityItem";
 
-interface Props {
-    activities: Activity[];
-    selectedActivity: Activity | undefined;
-    selectActivity: (id: string) => void;
-    cancelSelectActivity: () => void;
-    deleteActivity: (id: string) => void;
-    submitting: boolean;
-    deleteItemId: string;
-}
 
-export default function ActivityList(
-    {activities, selectedActivity, selectActivity, cancelSelectActivity, deleteActivity, submitting, deleteItemId} 
-: Props) {
+export default observer(function ActivityList() {
+
+    const {activityStore} = useStore();
+
+    const {activities} = activityStore;
+
     return (
         <div id="activity-list">
             <ul id="activity-list-container">
                 {activities.map((activity: Activity) => (
-                        <ActivityItem deleteItemId={deleteItemId} submitting={submitting} activity={activity} selectActivity={selectActivity} deleteActivity={deleteActivity} />
+                        <ActivityItem 
+                            activity={activity}
+                        />
                 ))}
             </ul>
         </div>
     )
-}
+})

@@ -21,93 +21,23 @@ function App() {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [deleteItemId, setDeleteItemId] = useState(uuid());
 
   useEffect(() => {
-    agent.Activities.list().then(response => {
-      let activities : Activity[] = [];
-      response.forEach( activity => {
-        activity.date = activity.date.split('T')[0];
-        activities.push(activity);
-      })
-      setActivities(activities)
-      setLoading(false);
-    });
+    activityStore.loadActivities();
   }, []) //empty arr of dependencies, ensures that rendering happens once instead of an infinite loop
 
-  function handleSelectActivity(id: string) {
-    setSelectedActivity(activities.find(x => x.id == id));
-  }
-
-  function handleCancelSelectActivity() {
-    setSelectedActivity(undefined);
-  }
-
-  function handleFormOpen(id?: string) {
-    id ? handleSelectActivity(id) : handleCancelSelectActivity();
-    setEditMode(true);
-  }
-
-  function handleFormClose() {
-    setEditMode(false);
-  }
-
-  function handleCreateOrEditActivity(activity: Activity) {
-    setSubmitting(true);
-    if (activity.id) {
-      agent.Activities.update(activity).then(() => {
-        setActivities([...activities.filter(x => x.id !== activity.id), activity]);
-        setSelectedActivity(activity);
-        setEditMode(false);
-        setSubmitting(false);
-      })
-    }else {
-      activity.id = uuid();
-      agent.Activities.create(activity).then(() => {
-        setActivities([...activities, activity]);
-        setSelectedActivity(activity);
-        setEditMode(false);
-        setSubmitting(false);
-      })
-    }
-  }
-
-  function handleDeleteActivity(id: string) {
-    setSubmitting(true);
-    setDeleteItemId(id);
-    agent.Activities.delete(id).then(() => {
-      setActivities([...activities.filter(x => x.id != id)]);
-      setSubmitting(false);
-    });
-    setEditMode(false);
-    setSelectedActivity(undefined);
-  }
-
-  if (loading) {
+  if (activityStore.loadingInitial) {
     return <LoadingComponent content='Loading app' />
   }else {
     return (
       <div >
         <header>
-          <NavBar openForm={handleFormOpen} />
+          <NavBar />
           <h2 id="icon-container"><FontAwesomeIcon icon={["fas", "users"]} />Reactivities</h2>
-          <h2>{activityStore.title}</h2>
-          <a href="#" onClick={activityStore.setTitle}>Shout</a>
-          <ActivityDashboard 
-            activities={activities} 
-            selectedActivity={selectedActivity}
-            selectActivity={handleSelectActivity}
-            cancelSelectActivity={handleCancelSelectActivity}
-            editMode={editMode}
-            openForm={handleFormOpen}
-            closeForm={handleFormClose}
-            createOrEdit={handleCreateOrEditActivity}
-            deleteActivity={handleDeleteActivity}
-            submitting={submitting}
-            deleteItemId={deleteItemId}
-          />
+          
+          <ActivityDashboard />
         </header>
       </div>
     );

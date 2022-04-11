@@ -3,17 +3,17 @@ import { Activity } from "../../../app/models/activity";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { useStore } from "../../../app/stores/store";
+import { observer } from "mobx-react-lite";
 
 library.add(faSpinner);
 
-interface Props {
-    activity: Activity | undefined;
-    closeForm: () => void;
-    createOrEdit: (activity: Activity) => void;
-    submitting: boolean;
-}
 
-export default function ActivityForm({activity: selectedActivity, closeForm, createOrEdit, submitting} : Props) {
+export default observer (function ActivityForm() {
+
+    const {activityStore} = useStore();
+
+    const {selectedActivity, closeForm, createActivity, updateActivity, loading} = activityStore
 
     const initialState = selectedActivity ?? {
         id: '',
@@ -29,7 +29,7 @@ export default function ActivityForm({activity: selectedActivity, closeForm, cre
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        createOrEdit(activity);
+        activity.id ? updateActivity(activity) : createActivity(activity);
     }
 
     function handleInput(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
@@ -48,12 +48,12 @@ export default function ActivityForm({activity: selectedActivity, closeForm, cre
                 <input name="venue" onChange={handleInput} value={activity.venue}  className="margin-1UP-halfLR" placeholder='Venue' />
                 <div  className="margin-1UP-halfLR">
                     <input onClick={closeForm} type="button" value='Cancel' />
-                    {submitting &&
+                    {loading &&
                     <button className="spin-btn" type="submit"><FontAwesomeIcon className="spinner" icon="spinner" /></button>}
-                    {! submitting &&
+                    {! loading &&
                     <button type="submit">Submit</button>}
                 </div>
             </form>
         </div>
     )
-}
+})
