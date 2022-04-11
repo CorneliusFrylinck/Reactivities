@@ -9,12 +9,12 @@ export default observer(function ActivityList() {
 
     const {activityStore} = useStore();
 
-    const {activities} = activityStore;
+    const {activitiesByDate} = activityStore;
 
     return (
         <div id="activity-list">
             <ul id="activity-list-container">
-                {activities.map((activity: Activity) => (
+                {activitiesByDate.map((activity: Activity) => (
                         <ActivityItem 
                             activity={activity}
                         />
