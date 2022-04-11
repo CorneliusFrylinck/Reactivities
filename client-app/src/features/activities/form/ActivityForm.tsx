@@ -13,7 +13,7 @@ export default observer (function ActivityForm() {
 
     const {activityStore} = useStore();
 
-    const {selectedActivity, closeForm, createActivity, updateActivity, loading} = activityStore
+    const {selectedActivity, createActivity, updateActivity, loading} = activityStore
 
     const initialState = selectedActivity ?? {
         id: '',
@@ -47,7 +47,7 @@ export default observer (function ActivityForm() {
                 <input name="city" onChange={handleInput} value={activity.city}  className="margin-1UP-halfLR" placeholder='City' />
                 <input name="venue" onChange={handleInput} value={activity.venue}  className="margin-1UP-halfLR" placeholder='Venue' />
                 <div  className="margin-1UP-halfLR">
-                    <input onClick={closeForm} type="button" value='Cancel' />
+                    <input type="button" value='Cancel' />
                     {loading &&
                     <button className="spin-btn" type="submit"><FontAwesomeIcon className="spinner" icon="spinner" /></button>}
                     {! loading &&

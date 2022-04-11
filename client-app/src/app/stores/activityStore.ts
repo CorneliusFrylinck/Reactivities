@@ -26,14 +26,39 @@ export default class ActivityStore {
         try {
             const activities = await agent.Activities.list();
             activities.forEach( activity => {
-                activity.date = activity.date.split('T')[0];
-                this.activityRegistry.set(activity.id, activity);
+                this.setActivity(activity);
                 this.setLoadingInitial(false);
             })
         }catch (err) {
             console.log(err);
             this.setLoadingInitial(false);
         }
+    }
+
+    loadActivity = async (id: string) => {
+        let activity = this.getActivity(id); //await agent.Activities.details(id);
+        if(activity) {
+            this.selectedActivity = activity;
+        }else {
+            this.loadingInitial = true;
+            try {
+                activity = await agent.Activities.details(id);
+                this.setActivity(activity);
+                this.setLoadingInitial(false);
+            }catch(err) {
+                console.log(err);
+                this.setLoadingInitial(false);
+            }
+        }
+    }
+
+    private getActivity = (id: string) => {
+        return this.activityRegistry.get(id);
+    }
+
+    private setActivity = (activity: Activity) => {
+        activity.date = activity.date.split('T')[0];
+        this.activityRegistry.set(activity.id, activity);
     }
 
     deleteActivity = async (id: string) => {
@@ -103,23 +128,6 @@ export default class ActivityStore {
 
     setEditMode = (state: boolean) => { 
         this.editMode = state;
-    }
-
-    selectActivity = (id: string) => {
-        this.selectedActivity = this.activityRegistry.get(id);
-    }
-
-    cancelSelectedActivity = () => {
-        this.selectedActivity = undefined;
-    }
-
-    openForm = (id?: string) => {
-        id ? this.selectActivity(id) : this.cancelSelectedActivity();
-        this.editMode = true;
-    }
-
-    closeForm = () => {
-        this.editMode = false;
     }
 
     setSelectedActivity = (activity: Activity | undefined) => {

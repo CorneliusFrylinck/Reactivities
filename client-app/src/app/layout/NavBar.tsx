@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { useStore } from '../stores/store';
 
 
@@ -9,9 +10,9 @@ export default function NavBar() {
     return (
         <div id="nav-parent">
             <ul id="NavBar">
-                <li><div id="logo-container"><img id="logo" src="/assets/logo.png" alt="logo"/> <a id="logo-description">Reactivities</a></div></li>
-                <li>Activities</li>
-                <li><a onClick={() => activityStore.openForm()} id="create-btn" href="#">Create Activity</a></li>
+                <li><NavLink to='' activeClassName='currentLink' className="white" id="logo-container"><img id="logo" src="/assets/logo.png" alt="logo"/> <a id="logo-description">Reactivities</a></NavLink></li>
+                <li><NavLink to="activities" activeClassName='currentLink' className="white" >Activities</NavLink></li>
+                <li><NavLink activeClassName='currentLink' className="white" id="create-btn" to="createActivity">Create Activity</NavLink></li>
             </ul>
         </div>
     )

@@ -367,3 +367,12 @@ to {
   transform: rotate(360deg);
 }
 }
+
+.white {
+  text-decoration-line: none;
+  color: white;
+}
+
+.currentLink {
+  pointer-events: all;
+}
