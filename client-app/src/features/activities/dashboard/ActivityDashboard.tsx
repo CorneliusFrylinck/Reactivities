@@ -2,6 +2,7 @@ import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
 import { useStore } from '../../../app/stores/store';
+import ActivityFilters from './ActivityFilters';
 import ActivityList from './ActivityList';
 
 
@@ -22,7 +23,7 @@ export default observer(function ActivityDashboard() {
         <div id="activity-dashboard">
             <ActivityList  />
             <div className='column'>
-                <h2>Activity Filters</h2>
+                <ActivityFilters />
             </div>
         </div>
     )

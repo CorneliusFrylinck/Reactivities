@@ -16,16 +16,16 @@ export default observer(function ActivityList() {
         <div id="activity-list">
         {groupedActivities.map(([group, activities]) => (
             <Fragment key={group}>
-                <div style={{color: "teal"}}>
+                <div className="group-text">
                     {group}
                 </div>
-                    <ul id="activity-list-container">
-                        {activities.map((activity: Activity) => (
-                                <ActivityItem key={activity.id}
-                                    activity={activity}
-                                />
-                        ))}
-                    </ul>
+                    {activities.map((activity: Activity) => (
+                        <ul id="activity-list-container">
+                            <ActivityItem key={activity.id}
+                                activity={activity}
+                            />
+                        </ul>
+                    ))}
             </Fragment>
         ))}
         </div>

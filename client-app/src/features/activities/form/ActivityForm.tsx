@@ -62,7 +62,7 @@ export default observer (function ActivityForm() {
                 <input name="city" onChange={handleInput} value={activity.city}  className="opacity-50 margin-1UP-halfLR" placeholder='City' />
                 <input name="venue" onChange={handleInput} value={activity.venue}  className="opacity-50 margin-1UP-halfLR" placeholder='Venue' />
                 <div  className="margin-1UP-halfLR">
-                    <Link to='/activities' >Cancel</Link>
+                    <Link to='/activities' className="cancel-btn" >Cancel</Link>
                     {loading &&
                     <button className="spin-btn" type="submit"><FontAwesomeIcon className="spinner" icon="spinner" /></button>}
                     {! loading &&
