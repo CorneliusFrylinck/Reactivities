@@ -63,3 +63,6 @@ C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\MediatR.Contracts.dll
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\AutoMapper.dll
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\FluentValidation.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
