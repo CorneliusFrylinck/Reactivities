@@ -485,3 +485,44 @@ to {
   width: 4rem;
   height: 2rem;
 }
+
+.link-list-row {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.a-link-bg {
+  max-width: 250px;
+  padding: 1rem;
+  position: relative;
+  background-image: linear-gradient(
+    rgb(24, 42, 115) 0%,
+    rgb(33, 138, 173) 69%
+  );
+  padding: 2.5px 1px;
+  border-radius: 2px;
+}
+
+.a-link {
+  padding: 0.1rem 0.7rem;
+  background: white;
+  border-radius: 2px;
+}
+
+.a-link:hover {
+  cursor: pointer;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: auto;
+}
