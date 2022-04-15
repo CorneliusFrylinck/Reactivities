@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
+import ValidationErrors from './ValidationErrors';
 
 export default function TestErrors() {
     const baseUrl = 'http://localhost:5000/api/'
+
+    const [errors, setErrors] = useState(null);
 
     function handleNotFound() {
         axios.get(baseUrl + 'buggy/not-found').catch(err => console.log(err.response));
@@ -21,11 +24,11 @@ export default function TestErrors() {
     }
 
     function handleBadGuid() {
-        axios.get(baseUrl + 'activities/notaguid').catch(err => console.log(err.response));
+        axios.get(baseUrl + 'activities/notaguid').catch(err => console.log(err));
     }
 
     function handleValidationError() {
-        axios.post(baseUrl + 'activities', {}).catch(err => console.log(err.response));
+        axios.post(baseUrl + 'activities', {}).catch(err => setErrors(err));
     }
 
     return (
@@ -39,6 +42,9 @@ export default function TestErrors() {
                 <li className='a-link-bg'><a className='a-link' onClick={handleUnauthorised}>Unauthorised</a></li>
                 <li className='a-link-bg'><a className='a-link' onClick={handleBadGuid}>Bad Guid</a></li>
             </ul>
+            {errors &&
+                <ValidationErrors errors={errors} />
+            }
         </div>
     )
 }

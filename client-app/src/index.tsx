@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import { store, StoreContext } from './app/stores/store';
 import { Router, BrowserRouter } from 'react-router-dom';
 import {createBrowserHistory, History} from 'history';
+import 'semantic-ui-css/semantic.min.css';
 
 export const history = createBrowserHistory();
 
