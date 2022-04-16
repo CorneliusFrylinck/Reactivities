@@ -1,16 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button, Container, Header, Image, Segment } from "semantic-ui-react";
 
 export default function HomePage() {
     return (
-        <div className="home">
-            <div className="home-header">
-                <div className="flex-row">
-                    <img id="logo" src="/assets/logo.png" alt="logo"/> <div id="logo-description">Reactivities</div>
-                </div>
-                <h2>Welcome to Reactivities</h2>
-                <Link className="activities-link" to='/activities'>Take me to the Activities!</Link>
-            </div>
-        </div>
+        <Segment inverted textAlign="center" vertical className="masthead">
+            <Container text>
+                <Header as='h1'>
+                    <Image size="massive" src='/assets/logo.png' alt='logo' style={{marginBottom: 12}}/>
+                    Reactivities
+                </Header>
+                <Header as='h2' inverted content='Welcome to Reactivities'></Header>
+                <Button as={Link} to='/activities' size="huge" inverted>
+                    Take me to the Activities
+                </Button>
+            </Container>
+        </Segment>
     )
 }

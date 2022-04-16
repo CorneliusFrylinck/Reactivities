@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import {Button, Header, Segment} from "semantic-ui-react";
 import axios from 'axios';
 import ValidationErrors from './ValidationErrors';
 
@@ -24,7 +25,7 @@ export default function TestErrors() {
     }
 
     function handleBadGuid() {
-        axios.get(baseUrl + 'activities/notaguid').catch(err => console.log(err));
+        axios.get(baseUrl + 'activities/notaguid').catch(err => console.log(err.response));
     }
 
     function handleValidationError() {
@@ -32,19 +33,20 @@ export default function TestErrors() {
     }
 
     return (
-        <div className='center flex-column'>
-            <h1>Test Error component</h1>
-            <ul className='link-list-row'>
-                <li className='a-link-bg'><a className='a-link' onClick={handleNotFound}>Not Found</a></li>
-                <li className='a-link-bg'><a className='a-link' onClick={handleBadRequest}>Bad Request</a></li>
-                <li className='a-link-bg'><a className='a-link' onClick={handleValidationError}>Validation Error</a></li>
-                <li className='a-link-bg'><a className='a-link' onClick={handleServerError}>Server Error</a></li>
-                <li className='a-link-bg'><a className='a-link' onClick={handleUnauthorised}>Unauthorised</a></li>
-                <li className='a-link-bg'><a className='a-link' onClick={handleBadGuid}>Bad Guid</a></li>
-            </ul>
-            {errors &&
-                <ValidationErrors errors={errors} />
-            }
-        </div>
+        <>
+            <Header as='h1' content='Test Error component' />
+            <Segment>
+                <Button.Group widths='7'>
+                    <Button onClick={handleNotFound} content='Not Found' basic primary />
+                    <Button onClick={handleBadRequest} content='Bad Request' basic primary />
+                    <Button onClick={handleValidationError} content='Validation Error' basic primary />
+                    <Button onClick={handleServerError} content='Server Error' basic primary />
+                    <Button onClick={handleUnauthorised} content='Unauthorised' basic primary />
+                    <Button onClick={handleBadGuid} content='Bad Guid' basic primary />
+                </Button.Group>
+            </Segment>
+            {errors && 
+                <ValidationErrors errors={errors} />}
+        </>
     )
 }

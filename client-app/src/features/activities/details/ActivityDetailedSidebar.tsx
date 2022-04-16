@@ -1,51 +1,61 @@
 import React from 'react'
+import { Segment, List, Label, Item, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
 
-export default observer(function ActivityDetailedSidebar () {
+export default observer(function ActivityDetailedSidebar() {
     return (
-        <div className="sidebar">
-            <div className='chat-sidebar-header'>
+        <>
+            <Segment
+                textAlign='center'
+                style={{ border: 'none' }}
+                attached='top'
+                secondary
+                inverted
+                color='teal'
+            >
                 3 People Going
-            </div>
-            <div>
-                <ul>
-                    <li className='flex-row person underline' style={{ position: 'relative' }}>
-                        <div className='host'
+            </Segment>
+            <Segment attached>
+                <List relaxed divided>
+                    <Item style={{ position: 'relative' }}>
+                        <Label
                             style={{ position: 'absolute' }}
+                            color='orange'
+                            ribbon='right'
                         >
                             Host
-                        </div>
-                        <img className='profile' src={'/assets/user.png'} />
-                        < div className="side-content flex-column">
-                            < div className="side-header" >
-                                <Link className='blue-link' to={`#`}>Bob</Link>
-                            </div>
-                            <div className='extra' style={{ color: 'orange' }}>Following</div>
-                        </div>
-                    </li>
+                        </Label>
+                        <Image size='tiny' src={'/assets/user.png'} />
+                        <Item.Content verticalAlign='middle'>
+                            <Item.Header as='h3'>
+                                <Link to={`#`}>Bob</Link>
+                            </Item.Header>
+                            <Item.Extra style={{ color: 'orange' }}>Following</Item.Extra>
+                        </Item.Content>
+                    </Item>
 
-                    <li className='flex-row person underline' style={{ position: 'relative' }}>
-                        <img className='profile' src={'/assets/user.png'} />
-                        < div className="side-content flex-column">
-                            < div className="side-header" >
-                                <Link className='blue-link' to={`#`}>Tom</Link>
-                            </div>
-                            <div className='extra' style={{ color: 'orange' }}>Following</div>
-                        </div>
-                    </li>
+                    <Item style={{ position: 'relative' }}>
+                        <Image size='tiny' src={'/assets/user.png'} />
+                        <Item.Content verticalAlign='middle'>
+                            <Item.Header as='h3'>
+                                <Link to={`#`}>Tom</Link>
+                            </Item.Header>
+                            <Item.Extra style={{ color: 'orange' }}>Following</Item.Extra>
+                        </Item.Content>
+                    </Item>
 
-                    <li className='flex-row person' style={{ position: 'relative' }}>
-                        <img className='profile' src={'/assets/user.png'} />
-                        < div className="side-content flex-column" style={{verticalAlign:'middle'}}>
-                            < div className="side-header" >
-                                <Link className='blue-link' to={`#`}>Sally</Link>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </ div>
-        </div>
+                    <Item style={{ position: 'relative' }}>
+                        <Image size='tiny' src={'/assets/user.png'} />
+                        <Item.Content verticalAlign='middle'>
+                            <Item.Header as='h3'>
+                                <Link to={`#`}>Sally</Link>
+                            </Item.Header>
+                        </Item.Content>
+                    </Item>
+                </List>
+            </Segment>
+        </>
 
     )
 })

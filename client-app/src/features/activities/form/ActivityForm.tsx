@@ -1,74 +1,69 @@
-import React, { ChangeEvent, ChangeEventHandler, useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { useStore } from "../../../app/stores/store";
 import { observer } from "mobx-react-lite";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { Button, Form, Segment } from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
-import { v4 as uuid } from 'uuid'
+import { useStore } from "../../../app/stores/store";
+import { v4 as uuid } from "uuid";
 
-library.add(faSpinner);
+export default observer(function ActivityForm() {
 
-
-export default observer (function ActivityForm() {
     const history = useHistory();
-    const {activityStore} = useStore();
-    const {createActivity, updateActivity, loading, loadActivity, loadingInitial} = activityStore
-    const {id} = useParams<{id: string}>();
-    
+    const { activityStore } = useStore();
+    const { createActivity, updateActivity, loading, loadActivity, loadingInitial } = activityStore;
+    const { id } = useParams<{ id: string }>();
+
+
     const [activity, setActivity] = useState({
         id: '',
         title: '',
-        category: '',
         description: '',
+        category: '',
         date: '',
         city: '',
         venue: ''
     });
 
+
     useEffect(() => {
-        if (id) loadActivity(id).then(activity => setActivity(activity!))
-    }, [id, loadActivity])
-    
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault();
-        if (activity.id.length === 0) {
+        if (id) {
+            loadActivity(id).then(activity => setActivity(activity!))
+        }
+    }, [id, loadActivity]);
+
+    function handleSubmit() {
+        if(activity.id.length === 0){
             let newActivity = {
                 ...activity,
                 id: uuid()
             };
             createActivity(newActivity).then(() => history.push(`/activities/${newActivity.id}`))
-        } else {
-            updateActivity(activity).then(() => history.push(`/activities/${activity.id}`))
-        }
+        }else{
+            updateActivity(activity).then(()=> history.push(`/activities/${activity.id}`))
+        } 
     }
 
-    function handleInput(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-        const {name, value} = event.target;
-        setActivity({...activity, [name]: value});
+    function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+
+        const { name, value } = event.target;
+        setActivity({ ...activity, [name]: value })
     }
 
-    if (loadingInitial) return <LoadingComponent />
+
+    if(loadingInitial) return <LoadingComponent content='Loading activity'/>
 
     return (
-        <div className="activityForm">
-            <form onSubmit={handleSubmit}>
-                <input name="title" onChange={handleInput} value={activity.title} className="opacity-50 margin-1UP-halfLR" placeholder='Title' />
-                <textarea name="description" onChange={handleInput} value={activity.description}  className="opacity-50 margin-1UP-halfLR" placeholder='Description' />
-                <input name="category" onChange={handleInput} value={activity.category}  className="opacity-50 margin-1UP-halfLR" placeholder='Category' />
-                <input name="date" onChange={handleInput} type="date" value={activity.date} className="opacity-50 margin-1UP-halfLR" placeholder='Date' />
-                <input name="city" onChange={handleInput} value={activity.city}  className="opacity-50 margin-1UP-halfLR" placeholder='City' />
-                <input name="venue" onChange={handleInput} value={activity.venue}  className="opacity-50 margin-1UP-halfLR" placeholder='Venue' />
-                <div  className="margin-1UP-halfLR">
-                    <Link to='/activities' className="cancel-btn" >Cancel</Link>
-                    {loading &&
-                    <button className="spin-btn" type="submit"><FontAwesomeIcon className="spinner" icon="spinner" /></button>}
-                    {! loading &&
-                    <button className="create-btn" type="submit">Submit</button>}
-                </div>
-            </form>
-        </div>
+        <Segment clearing>
+            <Form onSubmit={handleSubmit} autocomplete='off'>
+                <Form.Input placeholder='Title' value={activity.title} name='title' onChange={handleInputChange}></Form.Input>
+                <Form.TextArea placeholder='Description' value={activity.description} name='description' onChange={handleInputChange}></Form.TextArea>
+                <Form.Input placeholder='Category' value={activity.category} name='category' onChange={handleInputChange}></Form.Input>
+                <Form.Input placeholder='Date' type='date' value={activity.date} name='date' onChange={handleInputChange}></Form.Input>
+                <Form.Input placeholder='City' value={activity.city} name='city' onChange={handleInputChange}></Form.Input>
+                <Form.Input placeholder='Venue' value={activity.venue} name='venue' onChange={handleInputChange}></Form.Input>
+                <Button floated='right' positive type='submit' content='Submit' loading={loading} ></Button>
+                <Button as={Link} to='/activities' floated='right' type='button' content='Cancel'></Button>
+            </Form>
+        </Segment>
     )
 })
