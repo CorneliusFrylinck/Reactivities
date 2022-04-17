@@ -7,7 +7,10 @@ import { useStore } from "../../../app/stores/store";
 import { v4 as uuid } from "uuid";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
-import MyTextInput from "../../../app/form/MyTextInput";
+import MyTextInput from "../../../app/common/form/MyTextInput";
+import MyTextArea from "../../../app/common/form/MyTextArea";
+import MySelectInput from "../../../app/common/form/MySelectInput";
+import { categoryOptions } from "../../../app/common/options/CategoryOptions";
 
 export default observer(function ActivityForm() {
 
@@ -49,9 +52,9 @@ export default observer(function ActivityForm() {
                 ...activity,
                 id: uuid()
             };
-            createActivity(newActivity).then(() => history.push(`/activities/${newActivity.id}`))
+            //createActivity(newActivity).then(() => history.push(`/activities/${newActivity.id}`))
         }else{
-            updateActivity(activity).then(()=> history.push(`/activities/${activity.id}`))
+            //updateActivity(activity).then(()=> history.push(`/activities/${activity.id}`))
         } 
     }
 
@@ -74,9 +77,9 @@ export default observer(function ActivityForm() {
                 {({ handleSubmit }) => (  
                 <Form className="ui form" onSubmit={handleSubmit} autoComplete='off'>
                     <MyTextInput name='title' placeholder="Title" />
-                    <MyTextInput name='description' placeholder="Description" />
+                    <MyTextArea name='description' placeholder="Description" rows={3} />
                     <MyTextInput name='date' placeholder="Date" />
-                    <MyTextInput name='category' placeholder="Category" />
+                    <MySelectInput options={categoryOptions} name='category' placeholder="Category" />
                     <MyTextInput name='city' placeholder="City" />
                     <MyTextInput name='venue' placeholder="Venue" />
                     <Button floated='right' positive type='submit' content='Submit' loading={loading} ></Button>
