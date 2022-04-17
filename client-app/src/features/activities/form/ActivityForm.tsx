@@ -7,6 +7,7 @@ import { useStore } from "../../../app/stores/store";
 import { v4 as uuid } from "uuid";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
+import MyTextInput from "../../../app/form/MyTextInput";
 
 export default observer(function ActivityForm() {
 
@@ -27,7 +28,12 @@ export default observer(function ActivityForm() {
     });
 
     const validationSchema = Yup.object({
-        title: Yup.string().required('The activity title is required')
+        title: Yup.string().required('The activity title is required'),
+        description: Yup.string().required('The activity description is required'),
+        date: Yup.date().required(),
+        category: Yup.string().required(),
+        city: Yup.string().required(),
+        venue: Yup.string().required('The activity title is required')
     })
 
 
@@ -67,16 +73,12 @@ export default observer(function ActivityForm() {
                 onSubmit={values => console.log(values)}>
                 {({ handleSubmit }) => (  
                 <Form className="ui form" onSubmit={handleSubmit} autoComplete='off'>
-                    <FormField>
-                        <Field placeholder='Title' name='title'/>
-                        <ErrorMessage name="title" 
-                            render={err => <Label basic color='red' content={err} />} />
-                    </FormField>
-                    <Field placeholder='Description' name='description'/>
-                    <Field placeholder='Category' name='category'/>
-                    <Field placeholder='Date' type='date' name='date'/>
-                    <Field placeholder='City' name='city'/>
-                    <Field placeholder='Venue' name='venue'/>
+                    <MyTextInput name='title' placeholder="Title" />
+                    <MyTextInput name='description' placeholder="Description" />
+                    <MyTextInput name='date' placeholder="Date" />
+                    <MyTextInput name='category' placeholder="Category" />
+                    <MyTextInput name='city' placeholder="City" />
+                    <MyTextInput name='venue' placeholder="Venue" />
                     <Button floated='right' positive type='submit' content='Submit' loading={loading} ></Button>
                     <Button as={Link} to='/activities' floated='right' type='button' content='Cancel'></Button>
                 </Form>
