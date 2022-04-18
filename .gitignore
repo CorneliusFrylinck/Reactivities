@@ -466,3 +466,14 @@ Domain/obj/Debug/net6.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
 Persistence/obj/Debug/net6.0/Persistence.assets.cache
 Persistence/obj/Debug/net6.0/Persistence.GeneratedMSBuildEditorConfig.editorconfig
 API/reactivities.db
+API/bin/Debug/*
+API/bin/Debug/net6.0/API.deps.json
+API/bin/Debug/net6.0/API.dll
+API/bin/Debug/net6.0/API.pdb
+API/bin/Debug/net6.0/Application.dll
+API/bin/Debug/net6.0/Domain.dll
+API/bin/Debug/net6.0/Application.pdb
+API/bin/Debug/net6.0/Application.dll
+API/bin/Debug/net6.0/Domain.pdb
+API/bin/Debug/net6.0/Persistence.dll
+API/bin/Debug/net6.0/Persistence.pdb
