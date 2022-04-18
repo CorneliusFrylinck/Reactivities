@@ -465,3 +465,4 @@ Domain/obj/Debug/net6.0/Domain.assets.cache
 Domain/obj/Debug/net6.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
 Persistence/obj/Debug/net6.0/Persistence.assets.cache
 Persistence/obj/Debug/net6.0/Persistence.GeneratedMSBuildEditorConfig.editorconfig
+API/reactivities.db
