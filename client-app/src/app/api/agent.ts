@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { history } from "../..";
 
 import { Activity } from "../models/activity";
+import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
 
 
@@ -63,18 +64,23 @@ const requests ={
     del:<T>(url:string)=>axios.delete<T>(url).then(responseBody),
 }
 
-const Activities ={
-    list:()=> requests.get<Activity[]>('/activities'),
+const Activities = {
+    list:() => requests.get<Activity[]>('/activities'),
     details:(id:string)=>requests.get<Activity>(`/activities/${id}`),
     create: (activity: Activity) =>requests.post<void>('/activities', activity),
     update: (activity: Activity) => requests.put<void>(`/activities/${activity.id}`,activity),
     delete : (id: string)=> requests.del<void>(`/activities/${id}`)
     }
     
+const Account = {
+    current: () => requests.get<User>('/account'),
+    login: (user: UserFormValues) => requests.post<User>('/account/login', user),
+    register: (user: UserFormValues) => requests.post<User>('/account/register', user)
+}
 
-
-const agent={
-    Activities
+const agent = {
+    Activities,
+    Account
 }
 
 export default agent;
