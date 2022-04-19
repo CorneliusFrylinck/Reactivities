@@ -2153,11 +2153,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\API.csproj",
+      "projectUniqueName": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "c:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\API.csproj",
+      "projectPath": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\API.csproj",
       "packagesPath": "C:\\Users\\Cornelius\\.nuget\\packages\\",
-      "outputPath": "c:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\obj\\",
+      "outputPath": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2171,14 +2171,16 @@
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "c:\\Dev\\_Tutorials\\demo\\Reactivities\\Application\\Application.csproj": {
-              "projectPath": "c:\\Dev\\_Tutorials\\demo\\Reactivities\\Application\\Application.csproj"
+            "C:\\Dev\\_Tutorials\\demo\\Reactivities\\Application\\Application.csproj": {
+              "projectPath": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\Application\\Application.csproj"
             }
           }
         }
