@@ -477,3 +477,11 @@ API/bin/Debug/net6.0/Application.dll
 API/bin/Debug/net6.0/Domain.pdb
 API/bin/Debug/net6.0/Persistence.dll
 API/bin/Debug/net6.0/Persistence.pdb
+API/obj/Debug/net6.0/API.assets.cache
+API/obj/Debug/net6.0/API.GeneratedMSBuildEditorConfig.editorconfig
+Application/obj/Debug/net6.0/Application.assets.cache
+Application/obj/Debug/net6.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+Domain/obj/Debug/net6.0/Domain.assets.cache
+Domain/obj/Debug/net6.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+Persistence/obj/Debug/net6.0/Persistence.assets.cache
+Persistence/obj/Debug/net6.0/Persistence.GeneratedMSBuildEditorConfig.editorconfig
