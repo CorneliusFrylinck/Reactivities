@@ -55,6 +55,8 @@ nunit-*.xml
 [Dd]ebugPS/
 [Dd]ebug/
 [Bb]in/
+[Oo]bj/
+[Oo]bj
 [Rr]eleasePS/
 dlldata.c
 
@@ -490,3 +492,5 @@ Persistence/obj/Debug/net6.0/Persistence.GeneratedMSBuildEditorConfig.editorconf
 
 obj
 Debug
+Debug/
+API/obj/API.csproj.nuget.dgspec.json
