@@ -78,3 +78,5 @@ C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\System.IdentityModel.To
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Infrastructure.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Infrastructure.pdb
