@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import {Button, Header, Item, Segment, Image} from 'semantic-ui-react'
 import {Activity} from "../../../app/models/activity";
 import {format} from 'date-fns';
@@ -38,7 +38,7 @@ export default observer (function ActivityDetailedHeader({activity}: Props) {
                                 />
                                 <p>{format(activity.date!, 'dd MMM yyyy h:mm aa')}</p>
                                 <p>
-                                    Hosted by <strong>Bob</strong>
+                                    Hosted by <strong><Link to={`/profiles/${activity.hostUserName}`}>{activity.host?.displayName}</Link></strong>
                                 </p>
                             </Item.Content>
                         </Item>
@@ -46,14 +46,18 @@ export default observer (function ActivityDetailedHeader({activity}: Props) {
                 </Segment>
             </Segment>
             <Segment clearing attached='bottom'>
-                <Button color='teal'>Join Activity</Button>
-                <Button>Cancel attendance</Button>
-                <Button 
-                    as={NavLink}
-                    to={`/manage/${activity.id}`}
-                    color='orange' floated='right'
-                    content='Manage Event'
-                />
+                {activity.isHost ? (
+                    <Button 
+                        as={NavLink}
+                        to={`/manage/${activity.id}`}
+                        color='orange' floated='right'
+                        content='Manage Event'
+                    />
+                ) : activity.isGoing ? (
+                    <Button>Cancel attendance</Button>
+                ) : (
+                    <Button color='teal'>Join Activity</Button>
+                )}
             </Segment>
         </Segment.Group>
     )
