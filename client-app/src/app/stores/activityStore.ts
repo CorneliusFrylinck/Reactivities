@@ -162,7 +162,7 @@ export default class ActivityStore {
         var user = store.userStore.user;
         this.loading = true;
         try{
-            var activity = await agent.Activities.attend(this.selectedActivity!.id)
+            await agent.Activities.attend(this.selectedActivity!.id)
             runInAction(() => {
                 if (this.selectedActivity?.isGoing) {
                     this.selectedActivity!.attendees = 
@@ -171,7 +171,7 @@ export default class ActivityStore {
                 }else {
                     const attendee = new Profile(user!);
                     this.selectedActivity?.attendees?.push(attendee);
-                    this.selectedActivity!.isGoing = false;
+                    this.selectedActivity!.isGoing = true;
                 }
                 this.activityRegistry.set(this.selectedActivity!.id, this.selectedActivity!);
             })
