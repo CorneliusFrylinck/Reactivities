@@ -3,6 +3,7 @@ import agent from "../api/agent";
 import { Activity } from "../models/activity";
 import {format} from 'date-fns';
 import { store } from "./store";
+import { Profile } from "../models/profile";
 
 
 export default class ActivityStore {
@@ -154,6 +155,31 @@ export default class ActivityStore {
             runInAction(() => {
                 this.loading = false;
             })
+        }
+    }
+
+    updateAttendence = async () => {
+        var user = store.userStore.user;
+        this.loading = true;
+        try{
+            var activity = await agent.Activities.attend(this.selectedActivity!.id)
+            runInAction(() => {
+                if (this.selectedActivity?.isGoing) {
+                    this.selectedActivity!.attendees = 
+                        this.selectedActivity!.attendees?.filter(a => a.username !== user?.username);
+                        this.selectedActivity!.isGoing = false;
+                }else {
+                    const attendee = new Profile(user!);
+                    this.selectedActivity?.attendees?.push(attendee);
+                    this.selectedActivity!.isGoing = false;
+                }
+                this.activityRegistry.set(this.selectedActivity!.id, this.selectedActivity!);
+            })
+        }catch(err){
+            console.log(err)
+        }
+        finally{
+            runInAction(() => this.loading = false)
         }
     }
 }
