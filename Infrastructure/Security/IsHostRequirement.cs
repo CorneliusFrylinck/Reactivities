@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace Infrastructure.Security
@@ -31,9 +32,12 @@ namespace Infrastructure.Security
             if (userId == null) return Task.CompletedTask;
 
             var activityId = Guid.Parse(_httpContextAccessor.HttpContext?.Request.RouteValues
-                .SingleOrDefault(x => x.Key == "id").Value?.ToString());
+                .SingleOrDefault(x => x.Key == "id").Value?.ToString()?? Guid.NewGuid().ToString());
                 
-            var attendee = _dbContext.ActivityAttendees.FindAsync(userId, activityId).Result;
+            var attendee = _dbContext.ActivityAttendees
+                .AsNoTracking() // normally tracked, which means it would disconnect attendees from activity
+                .SingleOrDefaultAsync(x => x.AppUserId == userId && x.ActivityId == activityId) // FindAsync always tracks
+                .Result;
 
             if (attendee == null) return Task.CompletedTask;
 
