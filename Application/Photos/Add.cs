@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.Core;
@@ -43,13 +44,17 @@ namespace Application.Photos
 
                 var photo = new Photo
                 {
-                    Url = photoUploadResult.Url,
-                    Id = photoUploadResult.PublicId
+                    Url = photoUploadResult.Url!,
+                    Id = photoUploadResult.PublicId!
                 };
 
                 if (! user.Photos.Any(x => x.IsMain == true)) photo.IsMain = true;
 
+                Console.WriteLine(photo.IsMain);
+                Console.WriteLine(user.Photos.Any(x => x.IsMain == true));
+
                 user.Photos.Add(photo);
+                Console.WriteLine(user.Photos.Any(x => x.IsMain == true));
 
                 var result = await _context.SaveChangesAsync() > 0;
 
