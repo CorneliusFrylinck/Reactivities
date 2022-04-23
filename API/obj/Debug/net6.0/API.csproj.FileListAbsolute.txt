@@ -80,3 +80,5 @@ C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Microsoft.IdentityModel
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Infrastructure.dll
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Infrastructure.pdb
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\CloudinaryDotNet.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Newtonsoft.Json.dll
