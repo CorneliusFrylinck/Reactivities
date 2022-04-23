@@ -162,13 +162,13 @@ export default class ActivityStore {
         try{
             await agent.Activities.attend(this.selectedActivity!.id)
             runInAction(() => {
-                if (this.selectedActivity?.isGoing) {
+                if (this.selectedActivity!.isGoing) {
                     this.selectedActivity!.attendees = 
-                        this.selectedActivity!.attendees?.filter(a => a.username !== user?.username);
+                        this.selectedActivity!.attendees!.filter(a => a.username !== user!.username);
                         this.selectedActivity!.isGoing = false;
                 }else {
                     const attendee = new Profile(user!);
-                    this.selectedActivity?.attendees?.push(attendee);
+                    this.selectedActivity!.attendees!.push(attendee);
                     this.selectedActivity!.isGoing = true;
                 }
                 this.activityRegistry.set(this.selectedActivity!.id, this.selectedActivity!);
