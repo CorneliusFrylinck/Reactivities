@@ -1,12 +1,35 @@
 import { observer } from "mobx-react-lite";
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Grid } from "semantic-ui-react";
+import LoadingComponent from "../../app/layout/LoadingComponent";
+import { store, useStore } from "../../app/stores/store";
+import ProfileContent from "./ProfileContent";
+import ProfileHeader from "./ProfileHeader";
 
 export default observer(function ProfilePage() {
     
     const {username} = useParams<{username: string}>();
+    const user = store.userStore.user;
+    const {profileStore} = useStore();
+    const {loadProfile, loadingProfile, profile} = profileStore;
+
+    useEffect(() => {
+        loadProfile(username);
+    }, [loadProfile, username])
+
+    if (loadingProfile) return <LoadingComponent content="Loading profile..." />
 
     return (
-        <h1>Profile of {username}</h1>
+        <Grid>
+            <Grid.Column width={16}>
+                {profile &&
+                <>
+                    <ProfileHeader profile={profile} />
+                    <ProfileContent profile={profile} />
+                </>
+                }
+            </Grid.Column>
+        </Grid>
     )
 })
