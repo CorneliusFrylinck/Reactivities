@@ -7,8 +7,8 @@ namespace API.DTOs
 {
     public class ProfileFormDto
     {
-        public string username { get; set; }
+        public string? username { get; set; }
         public string? bio { get; set; }
-        public string displayName { get; set; }
+        public string? displayName { get; set; }
     }
 }

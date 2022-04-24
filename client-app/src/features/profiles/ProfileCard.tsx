@@ -15,7 +15,7 @@ export default observer (function ProfileCard({profile} : Props) {
             <Card.Content>
                 <Card.Header>{profile.displayName}</Card.Header>
                 {profile.bio !== null &&
-                <Card.Description style={{ wordWrap: 'break-word', overflow: 'hidden', wordBreak: "break-all", textOverflow: 'clip', whiteSpace: "nowrap"}}>{profile.bio && profile.bio.length < 50 ? profile.bio : profile.bio + "..."}</Card.Description>
+                <Card.Description style={{ wordWrap: 'break-word', overflow: 'hidden', wordBreak: "break-all", textOverflow: 'ellipsis', whiteSpace: "nowrap"}}>{profile.bio && profile.bio.length < 50 ? profile.bio : profile.bio + "..."}</Card.Description>
                 }
             </Card.Content>
             <Card.Content extra>
