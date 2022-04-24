@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
-import { Photo, Profile } from "../models/profile";
+import { Photo, Profile, ProfileFormValues } from "../models/profile";
 import { store } from "./store";
 
 export default class ProfileStore {
@@ -8,6 +8,7 @@ export default class ProfileStore {
     loadingProfile = false;
     uploading = false;
     loading = false;
+    isEditing = false;
 
     constructor () {
         makeAutoObservable(this);
@@ -80,8 +81,6 @@ export default class ProfileStore {
     deletePhoto = async (id: string) => {
         this.loading = true;
         try {
-            var profile = store.profileStore.profile
-
             await agent.Profiles.deletePhoto(id);
             runInAction(() => {
                 this.profile!.photos = this.profile?.photos?.filter(p => p.id !== id);
@@ -92,5 +91,30 @@ export default class ProfileStore {
             runInAction(() => this.loading = false)
         }
 
+    }
+
+    setDetails = async (formValues: ProfileFormValues) => {
+        this.isEditing = true;
+
+        try {
+            if (! this.profile) return;
+            formValues.username = this.profile.username;
+
+            await agent.Profiles.updateDetails(formValues);
+            runInAction(() => {
+                this.profile!.bio = formValues.bio;
+                this.profile!.displayName = formValues.displayName;
+                var user = store.userStore.user;
+                user!.displayName = formValues.displayName;
+                this.isEditing = false
+            })
+        } catch(err) {
+            console.log(err);
+            runInAction(() => this.isEditing = false)
+        }
+    }
+
+    toggleEditing = () => {
+        this.isEditing = ! this.isEditing;
     }
 }

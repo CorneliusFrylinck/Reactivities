@@ -21,3 +21,18 @@ export interface Photo {
     url: string;
     isMain: boolean;
 }
+
+
+export class ProfileFormValues {
+    bio?: string = undefined;
+    displayName: string = '';
+    username?: string = undefined;
+
+    constructor(profile?: ProfileFormValues) {
+      if (profile) {
+        this.bio = profile.bio;
+        this.displayName = profile.displayName;
+        this.username = profile.username;
+      }
+    }
+  }
