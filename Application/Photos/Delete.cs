@@ -16,9 +16,9 @@ namespace Application.Photos
         {
             public Command(string id)
             {
-                this.PublicId = id;
+                this.Id = id;
             }
-            public string PublicId { get; set; }
+            public string Id { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, Result<Unit>>
@@ -40,7 +40,7 @@ namespace Application.Photos
                 
                 if (user == null) return null;
 
-                var photo = user.Photos.FirstOrDefault(x => x.Id == request.PublicId);
+                var photo = user.Photos.FirstOrDefault(x => x.Id == request.Id);
                 
                 if (photo == null) return null;
 
@@ -55,7 +55,9 @@ namespace Application.Photos
                     user.Photos.Remove(ph);
                 }*/
 
-                if (await _context.SaveChangesAsync() > 0) Result<Unit>.Success(Unit.Value);
+                var success = await _context.SaveChangesAsync() > 0;
+
+                if (success) return Result<Unit>.Success(Unit.Value);
 
                 return Result<Unit>.Failure("Problem deleting photo from API");
             }
