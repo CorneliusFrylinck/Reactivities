@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Persistence;
 using Application.Activities;
 using Microsoft.AspNetCore.Authorization;
+using Application.Core;
 
 namespace API.Controllers
 {
@@ -22,9 +23,9 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Activity>>> GetActivities(CancellationToken ct) 
+        public async Task<ActionResult<List<Activity>>> GetActivities([FromQuery] PagingParams param) 
         {
-            return HandleResult(await Mediator.Send(new Application.Activities.List.Query(), ct));
+            return HandlePagedResult(await Mediator.Send(new Application.Activities.List.Query(param)));
         }
 
         [HttpGet("{id}")]
