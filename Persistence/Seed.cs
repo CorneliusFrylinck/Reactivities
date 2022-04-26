@@ -12,27 +12,75 @@ namespace Persistence
         public static async Task SeedData(DataContext context,
             UserManager<AppUser> userManager)
         {
-            if (!userManager.Users.Any() && !context.Activities.Any())
+            if (!userManager.Users.Any() && ! context.Activities!.Any())
             {
                 var users = new List<AppUser>
                 {
                     new AppUser
                     {
-                        DisplayName = "Bob",
-                        UserName = "bob",
-                        Email = "bob@test.com"
+                        DisplayName = "Ainz",
+                        UserName = "momonga",
+                        Email = "ainz@test.com"
                     },
                     new AppUser
                     {
-                        DisplayName = "Jane",
-                        UserName = "jane",
-                        Email = "jane@test.com"
+                        DisplayName = "Demiurge",
+                        UserName = "demiurge",
+                        Email = "demiurge@test.com"
                     },
                     new AppUser
                     {
-                        DisplayName = "Tom",
-                        UserName = "tom",
-                        Email = "tom@test.com"
+                        DisplayName = "Albedo",
+                        UserName = "albedo",
+                        Email = "albedo@test.com"
+                    },
+                    new AppUser
+                    {
+                        DisplayName = "Cocytus",
+                        UserName = "cocytus",
+                        Email = "cocytus@test.com"
+                    },
+                    new AppUser
+                    {
+                        DisplayName = "Aura Bella Fiora",
+                        UserName = "aura",
+                        Email = "aura@test.com"
+                    },
+                    new AppUser
+                    {
+                        DisplayName = "Sebas Tian",
+                        UserName = "sebas",
+                        Email = "sebas@test.com"
+                    },
+                    new AppUser
+                    {
+                        DisplayName = "Padora's actor",
+                        UserName = "pandora",
+                        Email = "pandora@test.com"
+                    },
+                    new AppUser
+                    {
+                        DisplayName = "Mare Bello Fiore",
+                        UserName = "mare",
+                        Email = "mare@test.com"
+                    },
+                    new AppUser
+                    {
+                        DisplayName = "Victim",
+                        UserName = "victim",
+                        Email = "victim@test.com"
+                    },
+                    new AppUser
+                    {
+                        DisplayName = "Gargantuan",
+                        UserName = "gargantuan",
+                        Email = "gargantuan@test.com"
+                    },
+                    new AppUser
+                    {
+                        DisplayName = "Narberal Gamma",
+                        UserName = "narberal",
+                        Email = "narberal@test.com"
                     },
                 };
 
@@ -45,12 +93,12 @@ namespace Persistence
                 {
                     new Activity
                     {
-                        Title = "Past Activity 1",
+                        Title = "Emergency meeting",
                         Date = DateTime.Now.AddMonths(-2),
-                        Description = "Activity 2 months ago",
-                        Category = "drinks",
-                        City = "London",
-                        Venue = "Pub",
+                        Description = "Gather the Guardians and discuss a plan of action",
+                        Category = "standup",
+                        City = "Re-Estize",
+                        Venue = "GreatTomb",
                         Attendees = new List<ActivityAttendee>
                         {
                             new ActivityAttendee
@@ -62,12 +110,12 @@ namespace Persistence
                     },
                     new Activity
                     {
-                        Title = "Past Activity 2",
-                        Date = DateTime.Now.AddMonths(-1),
-                        Description = "Activity 1 month ago",
-                        Category = "culture",
-                        City = "Paris",
-                        Venue = "The Louvre",
+                        Title = "Rescue Carne Villiage",
+                        Date = DateTime.Now.AddMonths(-8),
+                        Description = "Use the slaughter in a nearby village as an excuse to test powers from Yggdrasil",
+                        Category = "diplomacy",
+                        City = "Re-Estize",
+                        Venue = "CarneVillage",
                         Attendees = new List<ActivityAttendee>
                         {
                             new ActivityAttendee
@@ -84,12 +132,12 @@ namespace Persistence
                     },
                     new Activity
                     {
-                        Title = "Future Activity 1",
-                        Date = DateTime.Now.AddMonths(1),
-                        Description = "Activity 1 month in future",
-                        Category = "music",
-                        City = "London",
-                        Venue = "Wembly Stadium",
+                        Title = "Information gathering",
+                        Date = DateTime.Now.AddMonths(-7),
+                        Description = "Investigation needs to be done on items and skills in the new world, especially regarding items from Yggdrasil",
+                        Category = "investigation",
+                        City = "Re-Estize",
+                        Venue = "GreatTomb",
                         Attendees = new List<ActivityAttendee>
                         {
                             new ActivityAttendee
@@ -106,56 +154,56 @@ namespace Persistence
                     },
                     new Activity
                     {
-                        Title = "Future Activity 2",
+                        Title = "Become adventurers",
+                        Date = DateTime.Now.AddMonths(-6),
+                        Description = "To earn money and gather information, members of the Great Tomb need to become adventurers",
+                        Category = "quest",
+                        City = "Re-Estize",
+                        Venue = "Adventurer's Guild",
+                        Attendees = new List<ActivityAttendee>
+                        {
+                            new ActivityAttendee
+                            {
+                                AppUser = users[0],
+                                IsHost = true
+                            },
+                            new ActivityAttendee
+                            {
+                                AppUser = users[2],
+                                IsHost = false
+                            },
+                        }
+                    },
+                    new Activity
+                    {
+                        Title = "Find a job",
+                        Date = DateTime.Now.AddMonths(-3),
+                        Description = "The currency from Yggdrasil is worthless, someone from the Great Tomb needs to earn some money",
+                        Category = "quest",
+                        City = "Re-Estize",
+                        Venue = "Adventurer's Guild",
+                        Attendees = new List<ActivityAttendee>
+                        {
+                            new ActivityAttendee
+                            {
+                                AppUser = users[1],
+                                IsHost = true                            
+                            },
+                            new ActivityAttendee
+                            {
+                                AppUser = users[0],
+                                IsHost = false                            
+                            },
+                        }
+                    },
+                    new Activity
+                    {
+                        Title = "Tame the Wise King",
                         Date = DateTime.Now.AddMonths(2),
-                        Description = "Activity 2 months in future",
-                        Category = "food",
-                        City = "London",
-                        Venue = "Jamies Italian",
-                        Attendees = new List<ActivityAttendee>
-                        {
-                            new ActivityAttendee
-                            {
-                                AppUser = users[0],
-                                IsHost = true
-                            },
-                            new ActivityAttendee
-                            {
-                                AppUser = users[2],
-                                IsHost = false
-                            },
-                        }
-                    },
-                    new Activity
-                    {
-                        Title = "Future Activity 3",
-                        Date = DateTime.Now.AddMonths(3),
-                        Description = "Activity 3 months in future",
-                        Category = "drinks",
-                        City = "London",
-                        Venue = "Pub",
-                        Attendees = new List<ActivityAttendee>
-                        {
-                            new ActivityAttendee
-                            {
-                                AppUser = users[1],
-                                IsHost = true                            
-                            },
-                            new ActivityAttendee
-                            {
-                                AppUser = users[0],
-                                IsHost = false                            
-                            },
-                        }
-                    },
-                    new Activity
-                    {
-                        Title = "Future Activity 4",
-                        Date = DateTime.Now.AddMonths(4),
-                        Description = "Activity 4 months in future",
-                        Category = "culture",
-                        City = "London",
-                        Venue = "British Museum",
+                        Description = "Find and tame the Wise King of the forest",
+                        Category = "hamuske",
+                        City = "Re-Estize",
+                        Venue = "CarneVillage",
                         Attendees = new List<ActivityAttendee>
                         {
                             new ActivityAttendee
@@ -167,12 +215,12 @@ namespace Persistence
                     },
                     new Activity
                     {
-                        Title = "Future Activity 5",
-                        Date = DateTime.Now.AddMonths(5),
-                        Description = "Activity 5 months in future",
-                        Category = "drinks",
-                        City = "London",
-                        Venue = "Punch and Judy",
+                        Title = "Gather rare fighters",
+                        Date = DateTime.Now.AddMonths(4),
+                        Description = "Infiltrate the Death Spreading Brigade and look for strong fighters",
+                        Category = "hideout",
+                        City = "Re-Estize",
+                        Venue = "DSB Hideout",
                         Attendees = new List<ActivityAttendee>
                         {
                             new ActivityAttendee
@@ -189,12 +237,12 @@ namespace Persistence
                     },
                     new Activity
                     {
-                        Title = "Future Activity 6",
+                        Title = "Find NFirea",
                         Date = DateTime.Now.AddMonths(6),
-                        Description = "Activity 6 months in future",
-                        Category = "music",
-                        City = "London",
-                        Venue = "O2 Arena",
+                        Description = "Rescue NFirea from Khajiit",
+                        Category = "rescue",
+                        City = "Re-Estize",
+                        Venue = "Cemetery",
                         Attendees = new List<ActivityAttendee>
                         {
                             new ActivityAttendee
@@ -211,12 +259,12 @@ namespace Persistence
                     },
                     new Activity
                     {
-                        Title = "Future Activity 7",
+                        Title = "Investigate Shalltear",
                         Date = DateTime.Now.AddMonths(7),
-                        Description = "Activity 7 months in future",
-                        Category = "travel",
-                        City = "Berlin",
-                        Venue = "All",
+                        Description = "Investigate Shalltear's supposed betrayal",
+                        Category = "investigation",
+                        City = "Re-Estize",
+                        Venue = "Forest",
                         Attendees = new List<ActivityAttendee>
                         {
                             new ActivityAttendee
@@ -233,12 +281,78 @@ namespace Persistence
                     },
                     new Activity
                     {
-                        Title = "Future Activity 8",
+                        Title = "Gather World Items",
                         Date = DateTime.Now.AddMonths(8),
-                        Description = "Activity 8 months in future",
-                        Category = "drinks",
-                        City = "London",
-                        Venue = "Pub",
+                        Description = "Gather the strongest items from Yggdrasil to prepare for an ambush",
+                        Category = "preperation",
+                        City = "Re-Estize",
+                        Venue = "Nazarick",
+                        Attendees = new List<ActivityAttendee>
+                        {
+                            new ActivityAttendee
+                            {
+                                AppUser = users[2],
+                                IsHost = true                            
+                            },
+                            new ActivityAttendee
+                            {
+                                AppUser = users[1],
+                                IsHost = false                            
+                            },
+                        }
+                    },
+                    new Activity
+                    {
+                        Title = "Create lasting peace",
+                        Date = DateTime.Now.AddMonths(50),
+                        Description = "Orchestrate a summit to form lasting peace",
+                        Category = "diplomacy",
+                        City = "Re-Estize",
+                        Venue = "Neutral ground",
+                        Attendees = new List<ActivityAttendee>
+                        {
+                            new ActivityAttendee
+                            {
+                                AppUser = users[2],
+                                IsHost = true                            
+                            },
+                            new ActivityAttendee
+                            {
+                                AppUser = users[1],
+                                IsHost = false                            
+                            },
+                        }
+                    },
+                    new Activity
+                    {
+                        Title = "Take over Re-Estize",
+                        Date = DateTime.Now.AddMonths(8),
+                        Description = "Take over Nazarick's surrounding lands to protect the denizens of Nazarick",
+                        Category = "diplomacy",
+                        City = "Re-Estize",
+                        Venue = "Battlefield",
+                        Attendees = new List<ActivityAttendee>
+                        {
+                            new ActivityAttendee
+                            {
+                                AppUser = users[2],
+                                IsHost = true                            
+                            },
+                            new ActivityAttendee
+                            {
+                                AppUser = users[1],
+                                IsHost = false                            
+                            },
+                        }
+                    },
+                    new Activity
+                    {
+                        Title = "Intice workers to attack the Great Tomb",
+                        Date = DateTime.Now.AddMonths(7),
+                        Description = "Find and use a cause to legitimize the creation of the Sorcerer Kingdom",
+                        Category = "diplomacy",
+                        City = "Re-Estize",
+                        Venue = "Nazarick",
                         Attendees = new List<ActivityAttendee>
                         {
                             new ActivityAttendee
@@ -255,7 +369,7 @@ namespace Persistence
                     }
                 };
 
-                await context.Activities.AddRangeAsync(activities);
+                await context.Activities!.AddRangeAsync(activities);
                 await context.SaveChangesAsync();
             }
         }
