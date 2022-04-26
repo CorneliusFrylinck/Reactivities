@@ -87,3 +87,4 @@ C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Npgsql.dll
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Dev\_Tutorials\demo\Reactivities\api\bin\Debug\net6.0\NWebsec.AspNetCore.Core.dll
 C:\Dev\_Tutorials\demo\Reactivities\api\bin\Debug\net6.0\NWebsec.AspNetCore.Middleware.dll
+C:\Dev\_Tutorials\demo\Reactivities\api\bin\Debug\net6.0\Joonasw.AspNetCore.SecurityHeaders.dll

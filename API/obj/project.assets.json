@@ -89,6 +89,21 @@
           "lib/netstandard2.0/Humanizer.dll": {}
         }
       },
+      "Joonasw.AspNetCore.SecurityHeaders/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Razor": "2.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Joonasw.AspNetCore.SecurityHeaders.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Joonasw.AspNetCore.SecurityHeaders.dll": {}
+        }
+      },
       "MediatR/10.0.1": {
         "type": "package",
         "dependencies": {
@@ -207,6 +222,18 @@
         },
         "runtime": {
           "lib/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Razor/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Html.Abstractions": "2.2.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Razor.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Razor.dll": {}
         }
       },
       "Microsoft.CSharp/4.7.0": {
@@ -1115,6 +1142,21 @@
         "logo.png"
       ]
     },
+    "Joonasw.AspNetCore.SecurityHeaders/4.0.1": {
+      "sha512": "4igA23B7QeK8ncwmECV73EIkvfoGiJOaOI0Hd31F3O4wZTDScKW06nDfkrMJqkzq539RVVEQCtFFieSt3YVU+Q==",
+      "type": "package",
+      "path": "joonasw.aspnetcore.securityheaders/4.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "joonasw.aspnetcore.securityheaders.4.0.1.nupkg.sha512",
+        "joonasw.aspnetcore.securityheaders.nuspec",
+        "lib/net5.0/Joonasw.AspNetCore.SecurityHeaders.dll",
+        "lib/net6.0/Joonasw.AspNetCore.SecurityHeaders.dll",
+        "lib/netcoreapp3.1/Joonasw.AspNetCore.SecurityHeaders.dll"
+      ]
+    },
     "MediatR/10.0.1": {
       "sha512": "vnjbk4giDJzJelh34Ygt0eorApCKrRFB7j0pauFPY1oxfO3cEZ7FugBrIOjCM76SDGTOmPFfbfmVnz1t3iFrGA==",
       "type": "package",
@@ -1263,6 +1305,19 @@
         "lib/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
         "microsoft.aspnetcore.identity.entityframeworkcore.6.0.3.nupkg.sha512",
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Razor/2.2.0": {
+      "sha512": "V54PIyDCFl8COnTp9gezNHpUNHk7F9UnerGeZy3UfbnwYvfzbo+ipqQmSgeoESH8e0JvKhRTyQyZquW2EPtCmg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.razor/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Razor.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Razor.xml",
+        "microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.razor.nuspec"
       ]
     },
     "Microsoft.CSharp/4.7.0": {
@@ -2455,6 +2510,7 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "FluentValidation.AspNetCore >= 10.4.0",
       "Infrastructure >= 1.0.0",
+      "Joonasw.AspNetCore.SecurityHeaders >= 4.0.1",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 10.0.1",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.4",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.3",
@@ -2526,6 +2582,10 @@
           "FluentValidation.AspNetCore": {
             "target": "Package",
             "version": "[10.4.0, )"
+          },
+          "Joonasw.AspNetCore.SecurityHeaders": {
+            "target": "Package",
+            "version": "[4.0.1, )"
           },
           "MediatR.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",

@@ -1,28 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
-using Persistence;
-using Microsoft.EntityFrameworkCore;
-using MediatR;
 using Application.Activities;
-using Application.Core;
-using AutoMapper;
 using API.Extensions;
 using FluentValidation.AspNetCore;
 using API.Middleware;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using API.SignalR;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API
 {
@@ -55,15 +37,18 @@ namespace API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseMiddleware<ExceptionMiddleware>();
-
+            
             app.UseXContentTypeOptions();
             app.UseReferrerPolicy(opt => opt.NoReferrer());
             app.UseXXssProtection(opt => opt.EnabledWithBlockMode());
             app.UseXfo(opt => opt.Deny()); //prevent from being used in iFrame
             app.UseCsp(opt => opt
                 .BlockAllMixedContent()
-                .StyleSources(s => s.Self().CustomSources("https://fonts.googleapis.com"))
-                .FontSources(s => s.Self().CustomSources("https://fonts.gstatic.com", "data:"))
+                .DefaultSources(s => s.Self())
+                .ChildSources(s => s.Self().CustomSources("https://fonts.googleapis.com", "https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css", "https://fonts.gstatic.com"))
+                .StyleSources(s => s.Self().CustomSources("https://fonts.googleapis.com", "https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css"))
+                .FontSources(s => s.Self().CustomSources("https://fonts.gstatic.com",
+                    "https://cdn.jsdelivr.net", "data:"))
                 .FormActions(s => s.Self())
                 .FrameAncestors(s => s.Self())
                 .ImageSources(s => s.Self().CustomSources("https://res.cloudinary.com"))
@@ -75,6 +60,8 @@ namespace API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPIv5 v1"));
             }else {
+            //app.UseStrictTransportSecurity(new HstsOptions(TimeSpan.FromDays(365), includeSubDomains: true, preload: true));
+                app.UseHsts(h => h.IncludeSubdomains());
                 app.Use(async (context, next) => {
                     context.Response.Headers.Add("Strict-Transport-Security", "max-age=31536000");
                     await next.Invoke();

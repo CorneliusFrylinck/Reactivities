@@ -12,6 +12,7 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "FluentValidation.AspNetCore": "10.4.0",
           "Infrastructure": "1.0.0",
+          "Joonasw.AspNetCore.SecurityHeaders": "4.0.1",
           "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.4",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.3",
@@ -104,6 +105,20 @@
           }
         }
       },
+      "Joonasw.AspNetCore.SecurityHeaders/4.0.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Razor": "2.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Joonasw.AspNetCore.SecurityHeaders.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.1.0"
+          }
+        }
+      },
       "MediatR/10.0.1": {
         "dependencies": {
           "MediatR.Contracts": "1.0.1"
@@ -191,6 +206,11 @@
             "assemblyVersion": "6.0.3.0",
             "fileVersion": "6.0.322.12401"
           }
+        }
+      },
+      "Microsoft.AspNetCore.Razor/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Html.Abstractions": "2.2.0"
         }
       },
       "Microsoft.CSharp/4.7.0": {},
@@ -777,6 +797,13 @@
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
     },
+    "Joonasw.AspNetCore.SecurityHeaders/4.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4igA23B7QeK8ncwmECV73EIkvfoGiJOaOI0Hd31F3O4wZTDScKW06nDfkrMJqkzq539RVVEQCtFFieSt3YVU+Q==",
+      "path": "joonasw.aspnetcore.securityheaders/4.0.1",
+      "hashPath": "joonasw.aspnetcore.securityheaders.4.0.1.nupkg.sha512"
+    },
     "MediatR/10.0.1": {
       "type": "package",
       "serviceable": true,
@@ -846,6 +873,13 @@
       "sha512": "sha512-214kfSUvhEqivtGCtRuJXRmELiOgQ4POpn4KHhHCxtxXEvZKMI0KqCrVW5ZO2XA6c1uhOimWU/jYutGhJLhwJg==",
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/6.0.3",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.6.0.3.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Razor/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-V54PIyDCFl8COnTp9gezNHpUNHk7F9UnerGeZy3UfbnwYvfzbo+ipqQmSgeoESH8e0JvKhRTyQyZquW2EPtCmg==",
+      "path": "microsoft.aspnetcore.razor/2.2.0",
+      "hashPath": "microsoft.aspnetcore.razor.2.2.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.7.0": {
       "type": "package",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "t7FLR2zM1iol6h7xt0BcPspFFu+KAabkLoNMY1ZZ6d2Aj0rPvqxAY0biKPMwHwEvuNtpsnMJNWZaKUZu+nH6/Q==",
+  "dgSpecHash": "zrRNuS3cfBgw0w+/HNJwRC/0dm760GnH/A+dXowVVvrlS6oW3zdeqv17p7BDfhzx1TgTx2lv7wd46EcL/rxwXA==",
   "success": true,
-  "projectFilePath": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\api\\API.csproj",
+  "projectFilePath": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cornelius\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
@@ -11,6 +11,7 @@
     "C:\\Users\\Cornelius\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.4.0\\fluentvalidation.aspnetcore.10.4.0.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.4.0\\fluentvalidation.dependencyinjectionextensions.10.4.0.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Cornelius\\.nuget\\packages\\joonasw.aspnetcore.securityheaders\\4.0.1\\joonasw.aspnetcore.securityheaders.4.0.1.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
@@ -21,6 +22,7 @@
     "C:\\Users\\Cornelius\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.3\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.3.nupkg.sha512",
+    "C:\\Users\\Cornelius\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.3\\microsoft.data.sqlite.core.6.0.3.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.3\\microsoft.entityframeworkcore.6.0.3.nupkg.sha512",
