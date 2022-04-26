@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { UserActivity } from '../../app/models/profile';
 import { format } from 'date-fns';
 import { useStore } from "../../app/stores/store";
+
 const panes = [
  { menuItem: 'Future Events', pane: { key: 'future' } },
  { menuItem: 'Past Events', pane: { key: 'past' } },

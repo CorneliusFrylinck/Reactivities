@@ -4,8 +4,6 @@ import { Button, Icon, Item, Label, Segment } from "semantic-ui-react";
 import { Activity } from "../../../app/models/activity";
 import {format} from 'date-fns';
 import ActivityListItemAttendee from "./ActivityListItemAttendee";
-import { store } from "../../../app/stores/store";
-import { observer } from "mobx-react-lite";
 
 
 interface Props{

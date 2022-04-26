@@ -1,10 +1,8 @@
 import { observer } from "mobx-react-lite";
-import React, { useEffect } from "react";
-import { Link, NavLink, Redirect } from "react-router-dom";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import { Button, Container, Dropdown, Image, Menu } from "semantic-ui-react";
-import { history } from "../..";
 import { useStore } from "../stores/store";
-import UserStore from "../stores/userStore";
 
 
 

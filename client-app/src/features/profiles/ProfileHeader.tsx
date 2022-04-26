@@ -1,9 +1,7 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
-import { Button, Divider, Grid, Header, Item, Reveal, Segment, Statistic } from "semantic-ui-react";
+import { Divider, Grid, Header, Item, Segment, Statistic } from "semantic-ui-react";
 import { Profile } from "../../app/models/profile";
-import { User } from "../../app/models/user";
-import { store } from "../../app/stores/store";
 import FollowButton from "./FollowButton";
 
 interface Props {
@@ -11,8 +9,6 @@ interface Props {
 }
 
 export default observer(function ProfileHeader({profile} : Props) {
-    const user = store.userStore.user;
-    var hideFollowBtn = user?.username !== profile.username;
     return (
         <Segment>
             <Grid>

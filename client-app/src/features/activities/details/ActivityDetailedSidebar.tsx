@@ -2,7 +2,6 @@ import React from 'react'
 import { Segment, List, Label, Item, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
-import { Profile } from '../../../app/models/profile'
 import { Activity } from '../../../app/models/activity'
 
 interface Props {
@@ -27,7 +26,7 @@ export default observer(function ActivityDetailedSidebar({activity: {attendees, 
                 <List relaxed divided>
                     {attendees.map(attendee => (
                     <Item key={attendee.username} style={{ position: 'relative' }}>
-                        {(attendee.username == host?.username) && (
+                        {(attendee.username === host?.username) && (
                             <Label
                                 style={{ position: 'absolute' }}
                                 color='orange'

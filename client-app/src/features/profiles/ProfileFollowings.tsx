@@ -1,10 +1,7 @@
 import { observer } from "mobx-react-lite";
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Card, Grid, Header, Icon, Image, Label, Tab } from "semantic-ui-react";
-import { Profile } from "../../app/models/profile";
+import React from "react";
+import { Card, Grid, Header, Tab } from "semantic-ui-react";
 import { useStore } from "../../app/stores/store";
-import FollowButton from "./FollowButton";
 import ProfileCard from "./ProfileCard";
 
 
@@ -18,7 +15,7 @@ export default observer (function ProfileFollowings() {
                 <Grid.Column width={16}>
                     <Header 
                         floated='left' icon='user' 
-                        content={activeTab == 3 ? `People following ${profile?.displayName}` : `People ${profile?.displayName} is following`} 
+                        content={activeTab === 3 ? `People following ${profile?.displayName}` : `People ${profile?.displayName} is following`} 
                     />
                 </Grid.Column>
                 <Grid.Column width={16}>
