@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, NavLink, Redirect } from "react-router-dom";
 import { Button, Container, Dropdown, Image, Menu } from "semantic-ui-react";
 import { history } from "../..";
 import { useStore } from "../stores/store";
@@ -11,9 +11,9 @@ import UserStore from "../stores/userStore";
 export default observer(function NavBar() {
     
     const {userStore: {user, logout, isLoggedIn}} = useStore();
-
     return(
         <Menu inverted fixed='top'>
+            {isLoggedIn &&
             <Container>
                 <Menu.Item as={NavLink} to='/' exact header>
                     <img src="/assets/logo.png" alt="logo" style={{marginRight: '10px'}}></img>
@@ -35,7 +35,7 @@ export default observer(function NavBar() {
                         </Dropdown.Menu>
                     </Dropdown>
                 </Menu.Item>
-            </Container>
+            </Container>}
         </Menu>
     )
 })
