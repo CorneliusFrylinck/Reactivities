@@ -44,14 +44,14 @@ namespace API
             app.UseXfo(opt => opt.Deny()); //prevent from being used in iFrame
             app.UseCsp(opt => opt
                 .BlockAllMixedContent()
-                .DefaultSources(s => s.Self())
+                .DefaultSources(s => s.Self().CustomSources("https://res.cloudinary.com", "blob:", "data:"))
                 .ChildSources(s => s.Self().CustomSources("https://fonts.googleapis.com", "https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css", "https://fonts.gstatic.com"))
                 .StyleSources(s => s.Self().CustomSources("https://fonts.googleapis.com", "https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css"))
                 .FontSources(s => s.Self().CustomSources("https://fonts.gstatic.com",
                     "https://cdn.jsdelivr.net", "data:"))
                 .FormActions(s => s.Self())
                 .FrameAncestors(s => s.Self())
-                .ImageSources(s => s.Self().CustomSources("https://res.cloudinary.com"))
+                .ImageSources(s => s.Self().CustomSources("https://res.cloudinary.com", "blob:", "data:"))
                 .ScriptSources(s => s.Self().CustomSources("https://cdn.jsdelivr.net"))
             ); // get info about what would not work with CSP in console
 //default-src https:; img-src * 'self' data: https:; style-src 'self' 'unsafe-inline' www.google.com platform.twitter.com cdn.syndication.twimg.com fonts.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' www.google.com cse.google.com cdn.syndication.twimg.com platform.twitter.com platform.instagram.com www.instagram.com cdn1.developermedia.com cdn2.developermedia.com apis.google.com www.googletagservices.com adservice.google.com securepubads.g.doubleclick.net ajax.aspnetcdn.com ssl.google-analytics.com az416426.vo.msecnd.net/;
