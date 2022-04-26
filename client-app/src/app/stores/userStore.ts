@@ -1,6 +1,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import { history } from "../..";
 import agent from "../api/agent";
+import { Profile } from "../models/profile";
 import { User, UserFormValues } from "../models/user";
 import { store } from "./store";
 
@@ -19,6 +20,7 @@ export default class UserStore {
         try {
             const user = await agent.Account.login(creds);
             runInAction(() => {
+                store.profileStore.profile = null;
                 store.commonStore.setToken(user.token);
                 this.user = user;
             })
