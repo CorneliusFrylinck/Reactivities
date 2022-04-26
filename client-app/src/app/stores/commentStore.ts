@@ -27,7 +27,8 @@ export default class CommentStore {
                 runInAction(() => {
                     try {
                         comments.forEach(comment => {
-                            comment.createdAt = new Date(comment.createdAt + 'Z');
+                            console.log(comment.createdAt.toString().substring(0, comment.createdAt.toString().length - 6))
+                            comment.createdAt = new Date(comment.createdAt.toString().substring(0, comment.createdAt.toString().length - 6) + 'Z');
                         })
                         this.comments = comments
                     } catch(err) {

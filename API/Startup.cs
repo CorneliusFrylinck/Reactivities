@@ -37,6 +37,8 @@ namespace API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseMiddleware<ExceptionMiddleware>();
+
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             
             app.UseXContentTypeOptions();
             app.UseReferrerPolicy(opt => opt.NoReferrer());
