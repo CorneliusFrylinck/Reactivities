@@ -27,6 +27,8 @@ namespace API
             try 
             {
                 var context = services.GetRequiredService<DataContext>();
+                // for: Cannot write DateTime with Kind=Local to PostgreSQL type 'timestamp with time zone', only UTC is supported
+                AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
                 var userManager = services.GetRequiredService<UserManager<AppUser>>();
                 await context.Database.MigrateAsync();
                 await Seed.SeedData(context, userManager);
