@@ -38,7 +38,11 @@ export default observer(function ActivityForm() {
                 <Icon name="user" color="black" />
                 {`About ${profile!.displayName}`}
             </Header>
-            { profile?.username === user?.username && <Button onClick={() => toggleEditing()} style={{position: "absolute", top: 10, right: 15}} basic content={ isEditing ? "Cancel" : "Edit Profile"} />}
+            { profile?.username === user?.username && (
+                <Button onClick={() => toggleEditing()} 
+                    style={{position: "absolute", top: 10, right: 15}} 
+                    basic content={ isEditing ? "Cancel" : "Edit Profile"} 
+                />)}
             { profile?.username === user?.username && isEditing ? (
             <Formik 
                 validationSchema={validationSchema}

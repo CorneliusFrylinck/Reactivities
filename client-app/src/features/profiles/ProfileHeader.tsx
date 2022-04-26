@@ -17,7 +17,7 @@ export default observer(function ProfileHeader({profile} : Props) {
                         <Item>
                             <Item.Image avatar size="small" src={profile?.image || '/assets/user.png'} />
                             <Item.Content verticalAlign="middle">
-                                <Header as={profile?.displayName} />
+                                <Header as="h2" content={profile?.displayName} />
                             </Item.Content>
                         </Item>
                     </Item.Group>
