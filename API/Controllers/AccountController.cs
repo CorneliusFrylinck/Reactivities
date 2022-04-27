@@ -56,6 +56,12 @@ namespace API.Controllers
                 return ValidationProblem();
             }
 
+            Console.WriteLine("----------------------------------Does not exist");
+            Console.WriteLine($"----------------------------------{registerDto.UserName}");
+            Console.WriteLine($"----------------------------------{registerDto.DisplayName}");
+            Console.WriteLine($"----------------------------------{registerDto.Email}");
+            Console.WriteLine($"----------------------------------{registerDto.Password}");
+
             var user = new AppUser
             {
                 UserName = registerDto.UserName,
@@ -63,10 +69,12 @@ namespace API.Controllers
                 Email = registerDto.Email
             };
 
-            var result = _userManager.CreateAsync(user, registerDto.Password);
+            var result = _userManager.CreateAsync(user, registerDto.Password).Result;
 
-            if (result.IsCompletedSuccessfully)
+            Console.WriteLine($"----------------------------------After Create: {result}");
+            if (result.Succeeded)
             {
+            Console.WriteLine("----------------------------------About to return user");
                 return CreateUserObject(user);
             }
 
@@ -81,7 +89,7 @@ namespace API.Controllers
                 .Include(u => u.Photos)
                 .FirstOrDefaultAsync(x => x.Email == User.FindFirstValue(ClaimTypes.Email));
             
-            return CreateUserObject(user);
+            return CreateUserObject(user!);
         }
 
         private UserDto CreateUserObject(AppUser user)
@@ -90,8 +98,8 @@ namespace API.Controllers
             {
                 DisplayName = user.DisplayName,
                 Image = user?.Photos?.FirstOrDefault(x => x.IsMain)?.Url,
-                Token = _tokenService.CreateToken(user),
-                Username = user.UserName
+                Token = _tokenService.CreateToken(user!),
+                Username = user!.UserName
             };
         }
     }
