@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "zrRNuS3cfBgw0w+/HNJwRC/0dm760GnH/A+dXowVVvrlS6oW3zdeqv17p7BDfhzx1TgTx2lv7wd46EcL/rxwXA==",
+  "dgSpecHash": "zx+G3eCKroSHotdOe0VjVQl+8Ey/ee7zAxuD8kWunjMyzboG2HhYYPFC1pJYQjR7uWJZxikZfMEWpxI4qda+QA==",
   "success": true,
   "projectFilePath": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cornelius\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\Cornelius\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\cloudinarydotnet\\1.17.0\\cloudinarydotnet.1.17.0.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
     "C:\\Users\\Cornelius\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.4.0\\fluentvalidation.aspnetcore.10.4.0.nupkg.sha512",

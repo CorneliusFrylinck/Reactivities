@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Persistence;
 
 namespace API.Controllers
 {
@@ -18,16 +17,13 @@ namespace API.Controllers
         private readonly UserManager<AppUser> _userManager;
         public SignInManager<AppUser> _signInManager { get; }
         private readonly TokenService _tokenService;
-        private readonly DataContext _context;
-
         public AccountController(UserManager<AppUser> userManager
-            , SignInManager<AppUser> signInManager, TokenService tokenService
-            , DataContext context)
+            , SignInManager<AppUser> signInManager, TokenService tokenService)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _tokenService = tokenService;
-            _context = context;
+            
         }
 
         [HttpPost("login")]
@@ -67,11 +63,12 @@ namespace API.Controllers
                 Email = registerDto.Email
             };
 
-            await _context.AddAsync(user);
+            var result = _userManager.CreateAsync(user, registerDto.Password);
 
-            var success = await _context.SaveChangesAsync() > 0;
-
-            if (success) return CreateUserObject(user);
+            if (result.IsCompletedSuccessfully)
+            {
+                return CreateUserObject(user);
+            }
 
             return BadRequest("Problem registering user");
         }
