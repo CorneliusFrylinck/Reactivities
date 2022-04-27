@@ -12050,6 +12050,45 @@
         }
       },
       {
+        "HashCode": 1834117439,
+        "Kind": "ITagHelper",
+        "Name": "Joonasw.AspNetCore.SecurityHeaders.TagHelpers.NonceTagHelper",
+        "AssemblyName": "Joonasw.AspNetCore.SecurityHeaders",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "script",
+            "Attributes": [
+              {
+                "Name": "asp-add-nonce"
+              }
+            ]
+          },
+          {
+            "TagName": "style",
+            "Attributes": [
+              {
+                "Name": "asp-add-nonce"
+              }
+            ]
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-add-nonce",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "AddNonce"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "Joonasw.AspNetCore.SecurityHeaders.TagHelpers.NonceTagHelper"
+        }
+      },
+      {
         "HashCode": -1132855933,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper",
@@ -14242,45 +14281,6 @@
         "Metadata": {
           "Runtime.Name": "ITagHelper",
           "Common.TypeName": "Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper"
-        }
-      },
-      {
-        "HashCode": 1834117439,
-        "Kind": "ITagHelper",
-        "Name": "Joonasw.AspNetCore.SecurityHeaders.TagHelpers.NonceTagHelper",
-        "AssemblyName": "Joonasw.AspNetCore.SecurityHeaders",
-        "CaseSensitive": false,
-        "TagMatchingRules": [
-          {
-            "TagName": "script",
-            "Attributes": [
-              {
-                "Name": "asp-add-nonce"
-              }
-            ]
-          },
-          {
-            "TagName": "style",
-            "Attributes": [
-              {
-                "Name": "asp-add-nonce"
-              }
-            ]
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "ITagHelper",
-            "Name": "asp-add-nonce",
-            "TypeName": "System.Boolean",
-            "Metadata": {
-              "Common.PropertyName": "AddNonce"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "ITagHelper",
-          "Common.TypeName": "Joonasw.AspNetCore.SecurityHeaders.TagHelpers.NonceTagHelper"
         }
       },
       {

@@ -20,6 +20,7 @@ namespace API.Extensions
                 , IConfiguration config) {
             services.AddIdentityCore<AppUser>(opt => {
                 opt.Password.RequireNonAlphanumeric = true;
+                opt.Password.RequiredUniqueChars = 1;
                 opt.Password.RequiredLength = 6;
                 opt.Password.RequireUppercase = true;
                 opt.Password.RequireLowercase = true;
