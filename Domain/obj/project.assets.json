@@ -741,11 +741,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Dev\\_Tutorials\\demo\\Reactivities\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "c:\\Dev\\_Tutorials\\demo\\Reactivities\\Domain\\Domain.csproj",
+      "projectPath": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Cornelius\\.nuget\\packages\\",
-      "outputPath": "c:\\Dev\\_Tutorials\\demo\\Reactivities\\Domain\\obj\\",
+      "outputPath": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -799,7 +799,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300-preview.22204.3\\RuntimeIdentifierGraph.json"
       }
     }
   }

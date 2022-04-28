@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [AllowAnonymous]
     [ApiController]
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
@@ -26,6 +25,7 @@ namespace API.Controllers
             
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto) {
             var user = await _userManager.Users
@@ -37,11 +37,13 @@ namespace API.Controllers
             var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
 
             if (result.Succeeded) {
+                await SetRefreshToken(user);
                 return CreateUserObject(user);
             }
             return Unauthorized();
         }
-
+        
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
@@ -56,11 +58,11 @@ namespace API.Controllers
                 return ValidationProblem();
             }
 
-            Console.WriteLine("----------------------------------Does not exist");
-            Console.WriteLine($"----------------------------------{registerDto.UserName}");
-            Console.WriteLine($"----------------------------------{registerDto.DisplayName}");
-            Console.WriteLine($"----------------------------------{registerDto.Email}");
-            Console.WriteLine($"----------------------------------{registerDto.Password}");
+            // Console.WriteLine("----------------------------------Does not exist");
+            // Console.WriteLine($"----------------------------------{registerDto.UserName}");
+            // Console.WriteLine($"----------------------------------{registerDto.DisplayName}");
+            // Console.WriteLine($"----------------------------------{registerDto.Email}");
+            // Console.WriteLine($"----------------------------------{registerDto.Password}");
 
             var user = new AppUser
             {
@@ -71,10 +73,11 @@ namespace API.Controllers
 
             var result = _userManager.CreateAsync(user, registerDto.Password).Result;
 
-            Console.WriteLine($"----------------------------------After Create: {result}");
+            //Console.WriteLine($"----------------------------------After Create: {result}");
             if (result.Succeeded)
             {
-            Console.WriteLine("----------------------------------About to return user");
+            //Console.WriteLine("----------------------------------About to return user");
+                await SetRefreshToken(user);
                 return CreateUserObject(user);
             }
 
@@ -89,7 +92,47 @@ namespace API.Controllers
                 .Include(u => u.Photos)
                 .FirstOrDefaultAsync(x => x.Email == User.FindFirstValue(ClaimTypes.Email));
             
+            await SetRefreshToken(user);
             return CreateUserObject(user!);
+        }
+
+        [Authorize]
+        [HttpPost("refreshToken")]
+        public async Task<ActionResult<UserDto>> RefreshToken()
+        {
+            var refreshToken = Request.Cookies["refreshToken"];
+
+            var user = await _userManager.Users
+                .Include(r => r.RefreshTokens)
+                .Include(u => u.Photos)
+                .FirstOrDefaultAsync(x => x.UserName == User.FindFirstValue(ClaimTypes.Name));
+            
+            if (user == null) return Unauthorized();
+
+            var oldToken = user.RefreshTokens.SingleOrDefault(x => x.Token == refreshToken);
+
+            if (oldToken != null && ! oldToken.IsActive)
+            {
+                return Unauthorized();
+            }
+
+           return CreateUserObject(user);
+        }
+
+        private async Task SetRefreshToken(AppUser user)
+        {
+            var refreshToken = _tokenService.GenerateRefreshToken();
+
+            user.RefreshTokens.Add(refreshToken);
+            await _userManager.UpdateAsync(user);
+
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = DateTime.UtcNow.AddDays(7)
+            };
+
+            Response.Cookies.Append("refreshToken", refreshToken.Token, cookieOptions);
         }
 
         private UserDto CreateUserObject(AppUser user)
