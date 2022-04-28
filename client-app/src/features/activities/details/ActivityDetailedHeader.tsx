@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import {Button, Header, Item, Segment, Image, Label} from 'semantic-ui-react'
 import {Activity} from "../../../app/models/activity";
 import {format} from 'date-fns';
-import { store, useStore } from '../../../app/stores/store';
+import { useStore } from '../../../app/stores/store';
 
 const activityImageStyle = {
     filter: 'brightness(30%)'

@@ -36,7 +36,7 @@ export default observer(function ActivityListItemAttendee({attendees} : Props) {
                                 circular 
                                 src={attendee.image || '/assets/user.png'} 
                                 bordered
-                                style={ attendee.username == user?.username ?
+                                style={ attendee.username === user?.username ?
                                         userStyles : 
                                         attendee.following 
                                         ? followingStyles 

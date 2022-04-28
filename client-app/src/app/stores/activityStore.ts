@@ -143,7 +143,7 @@ export default class ActivityStore {
         const user = store.userStore.user;
         if(user) {
             activity.isGoing = activity.attendees!.some(
-                a =>  a.username == user.username
+                a =>  a.username === user.username
             )
             activity.isHost = (activity.hostUserName === user.username);
             activity.host = activity.attendees?.find(x => x.username === activity.hostUserName);
@@ -183,7 +183,6 @@ export default class ActivityStore {
 
     updateActivity = async (activity: ActivityFormValues) => {
         const user = store.userStore.user;
-        const attendee = new Profile(user!);
         try {
             await agent.Activities.update(activity);
 
