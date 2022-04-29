@@ -89,3 +89,5 @@ C:\Dev\_Tutorials\demo\Reactivities\api\bin\Debug\net6.0\NWebsec.AspNetCore.Core
 C:\Dev\_Tutorials\demo\Reactivities\api\bin\Debug\net6.0\NWebsec.AspNetCore.Middleware.dll
 C:\Dev\_Tutorials\demo\Reactivities\api\bin\Debug\net6.0\Joonasw.AspNetCore.SecurityHeaders.dll
 C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\BCrypt.Net-Core.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\SendGrid.dll
+C:\Dev\_Tutorials\demo\Reactivities\API\bin\Debug\net6.0\StarkbankEcdsa.dll

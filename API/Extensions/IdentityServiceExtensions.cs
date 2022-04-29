@@ -24,9 +24,11 @@ namespace API.Extensions
                 opt.Password.RequiredLength = 6;
                 opt.Password.RequireUppercase = true;
                 opt.Password.RequireLowercase = true;
+                opt.SignIn.RequireConfirmedEmail = true;
             })
             .AddEntityFrameworkStores<DataContext>()
-            .AddSignInManager<SignInManager<AppUser>>();
+            .AddSignInManager<SignInManager<AppUser>>()
+            .AddDefaultTokenProviders(); // allows us to create tokens for things like email accounts
             
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
 
