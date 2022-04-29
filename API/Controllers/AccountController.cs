@@ -87,17 +87,18 @@ namespace API.Controllers
 
             var result = _userManager.CreateAsync(user, registerDto.Password).Result;
 
-            //Console.WriteLine($"----------------------------------After Create: {result}");
+            Console.WriteLine($"----------------------------------After Create: {result}");
             if (! result.Succeeded)
             {
                 return BadRequest("Problem registering User");
             }
 
-            var origin = Request.Headers["origin"];
+            user.EmailConfirmed = true; //  TODO - REMOVE
+            //var origin = Request.Headers["origin"];
 
-            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            //var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-            token = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
+            //token = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
 
            /* var verifyUrl = $"{origin}/account/verifyEmail?token={token}&email={user.Email}";
             var message = $"<p>Please click the link below to verify your email address:</p><p><a href='{verifyUrl}'>Click to verify email</a></p>";
