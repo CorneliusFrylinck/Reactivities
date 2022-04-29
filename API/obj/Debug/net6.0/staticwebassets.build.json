@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "O8GAYbILh573g88E6dcD5k1/6XFC3KGaiM/y+RcVFmI=",
+  "Hash": "03vIP4rnaroycwkok1qpTPbOoRtHQ/XRpeNqX5NjvNU=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -544,12 +544,12 @@
       "OriginalItemSpec": "wwwroot\\static\\js\\787.d0674560.chunk.js.map"
     },
     {
-      "Identity": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\wwwroot\\static\\js\\main.0a841189.js",
+      "Identity": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\wwwroot\\static\\js\\main.ae52ca4a.js",
       "SourceId": "API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\wwwroot\\",
       "BasePath": "_content/API",
-      "RelativePath": "static/js/main.0a841189.js",
+      "RelativePath": "static/js/main.ae52ca4a.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -558,15 +558,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\static\\js\\main.0a841189.js"
+      "OriginalItemSpec": "wwwroot\\static\\js\\main.ae52ca4a.js"
     },
     {
-      "Identity": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\wwwroot\\static\\js\\main.0a841189.js.LICENSE.txt",
+      "Identity": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\wwwroot\\static\\js\\main.ae52ca4a.js.LICENSE.txt",
       "SourceId": "API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\wwwroot\\",
       "BasePath": "_content/API",
-      "RelativePath": "static/js/main.0a841189.js.LICENSE.txt",
+      "RelativePath": "static/js/main.ae52ca4a.js.LICENSE.txt",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -575,15 +575,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\static\\js\\main.0a841189.js.LICENSE.txt"
+      "OriginalItemSpec": "wwwroot\\static\\js\\main.ae52ca4a.js.LICENSE.txt"
     },
     {
-      "Identity": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\wwwroot\\static\\js\\main.0a841189.js.map",
+      "Identity": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\wwwroot\\static\\js\\main.ae52ca4a.js.map",
       "SourceId": "API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\wwwroot\\",
       "BasePath": "_content/API",
-      "RelativePath": "static/js/main.0a841189.js.map",
+      "RelativePath": "static/js/main.ae52ca4a.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -592,7 +592,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\static\\js\\main.0a841189.js.map"
+      "OriginalItemSpec": "wwwroot\\static\\js\\main.ae52ca4a.js.map"
     },
     {
       "Identity": "C:\\Dev\\_Tutorials\\demo\\Reactivities\\API\\wwwroot\\static\\media\\brand-icons.278156e41e0ad908cf7f.woff2",
