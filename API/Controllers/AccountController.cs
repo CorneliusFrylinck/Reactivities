@@ -131,6 +131,8 @@ namespace API.Controllers
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null) return Unauthorized();
 
+            if (user.EmailConfirmed) return BadRequest("Email already confirmed");
+
             var origin = Request.Headers["origin"];
 
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
