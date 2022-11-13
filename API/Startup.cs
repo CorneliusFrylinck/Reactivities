@@ -23,7 +23,7 @@ namespace API
 
             services.AddControllers(opt =>
             {
-                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                var policy = new AuthorizationPolicyBuilder().Build();
                 opt.Filters.Add(new AuthorizeFilter(policy));
             })
             .AddFluentValidation(config => {
