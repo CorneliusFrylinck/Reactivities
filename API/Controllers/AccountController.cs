@@ -51,8 +51,7 @@ namespace API.Controllers
             if (user.UserName == "gargantuan") user.EmailConfirmed = true;
             if (user.UserName == "narberal") user.EmailConfirmed = true;
             if (user.UserName == "shalltear") user.EmailConfirmed = true;
-
-            if (! user.EmailConfirmed) return user.EmailConfirmed = true;
+            if (user.UserName == "ainz") user.EmailConfirmed = true;
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
 
